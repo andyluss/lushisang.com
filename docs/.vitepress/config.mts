@@ -4,7 +4,6 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "陆仕桑的博客",
   description: "Just for fun.",
-  base: '/blog/',
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
