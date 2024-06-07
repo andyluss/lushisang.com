@@ -14,7 +14,7 @@ hero:
       text: API Examples
       link: /api-examples
   image:
-      src: /avatar.png
+      src: /images/avatar.png
       alt: 陆仕桑
 
 features:
