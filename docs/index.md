@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "陆仕桑"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: 陆仕桑
+  text: 陆仕桑的个人网站
+  tagline: 独立而开放
   actions:
     - theme: brand
       text: Markdown Examples
@@ -17,13 +17,6 @@ hero:
       src: /images/avatar.png
       alt: 陆仕桑
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
 <style>
