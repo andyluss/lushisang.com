@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "陆仕桑的博客",
+  title: "陆仕桑的个人网站",
   description: "Just for fun.",
   cleanUrls: true,
   themeConfig: {
