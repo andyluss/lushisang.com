@@ -1,7 +1,8 @@
 {
-  "name": "",
+  "name": "lushisang.com",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -16,5 +17,12 @@
     "@astrojs/sitemap": "^3.1.5",
     "astro": "^4.10.2",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "eslint": "^9.5.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "globals": "^15.6.0",
+    "typescript-eslint": "^7.13.1"
   }
 }
