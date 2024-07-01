@@ -3,13 +3,13 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import DiaryLayout from "../../layouts/DiaryLayout.astro";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("diary");
+    const posts = await getCollection("xyy");
     return posts.map((post) => ({
         params: { slug: post.slug },
         props: post,
     }));
 }
-type Props = CollectionEntry<"diary">;
+type Props = CollectionEntry<"xyy">;
 
 const post = Astro.props;
 const { Content } = await post.render();

@@ -13,7 +13,7 @@ const blog = defineCollection({
   }),
 });
 
-const diary = defineCollection({
+const xyy = defineCollection({
   type: "content",
   // Type-check frontmatter using a schema
   schema: z.object({
@@ -25,4 +25,4 @@ const diary = defineCollection({
     heroImage: z.string().optional(),
   }),
 });
-export const collections = { blog, diary };
+export const collections = { blog, xyy };
