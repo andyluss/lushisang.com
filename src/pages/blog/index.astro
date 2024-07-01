@@ -77,7 +77,7 @@ const posts = (await getCollection("blog")).sort(
                     {
                         posts.reverse().map((post) => (
                             <li>
-                                <a href={`/blog/${post.slug}/`}>
+                                <a href={`/blog/${post.slug}`}>
                                     <h5 class="title">{post.data.title}</h5>
                                     <p class="date">
                                         <FormattedDate
