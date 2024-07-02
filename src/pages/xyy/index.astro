@@ -22,14 +22,17 @@ const posts = (await getCollection("xyy")).sort(
             ul {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 1rem;
+                gap: 0.5rem;
                 list-style-type: none;
                 justify-content: flex-start;
                 margin: 0;
                 padding: 0;
             }
             ul li {
-                width: calc(50% - 1rem);
+                width: 160px;
+                height: 80px;
+                border: solid rgba(189, 195, 255, 1);
+                padding: 4px;
             }
             ul li * {
                 text-decoration: none;
@@ -46,10 +49,12 @@ const posts = (await getCollection("xyy")).sort(
                 margin: 0;
                 color: rgb(var(--black));
                 line-height: 1;
+                font-size: medium;
             }
             .date {
                 margin: 0;
                 color: rgb(var(--gray));
+                font-size: medium;
             }
             ul li a:hover .title,
             ul li a:hover .date {
