@@ -63,11 +63,9 @@ const posts = (await getCollection("xyy")).sort(
                 box-shadow: var(--box-shadow);
             }
             @media (max-width: 720px) {
-                ul {
-                    gap: 0.5em;
-                }
                 ul li {
                     width: 100%;
+                    height: auto;
                     text-align: center;
                 }
             }
