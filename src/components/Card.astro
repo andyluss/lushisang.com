@@ -1,0 +1,20 @@
+---
+interface Props {
+	width: string;
+	height: string;
+}
+
+const { width = '100px', height = '100px' } = Astro.props;
+---
+
+<div class="card">
+    <slot/>
+</div>
+<style define:vars={{ width, height }}>
+    .card {
+        border: solid 1px;
+        width: var(--width);
+        height: var(--height);
+        overflow: hidden;
+    }
+</style>
