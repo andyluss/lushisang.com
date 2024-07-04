@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -13,7 +14,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <body>
         <Header />
         <main>
-            <h1>🧑‍🚀一个幻想遨游太空的普通农民🧑‍🌾与软件开发者🧑‍💻</h1>
+            <Card width='600px' height='300px'>
+                <div class="flex h-full items-center justify-center">
+                    <h2 class="text-center leading-relaxed">一个幻想🧑‍🚀遨游太空的<br>🧑‍🌾农民<small> 和 </small>🧑‍💻软件开发者</h1>
+                </div>
+            </Card>
         </main>
         <Footer />
     </body>
