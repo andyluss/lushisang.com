@@ -7,10 +7,5 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://lushisang.com",
-  integrations: [
-    mdx(),
-    sitemap(),
-    vue({ devtools: true }),
-    tailwind(),
-  ]
+  integrations: [mdx(), sitemap(), vue({ devtools: true }), tailwind()],
 });
