@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import XyyLayout from "../../layouts/XyyLayout.astro";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("xyy");
@@ -15,6 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<XyyLayout {...post.data}>
+<ContentLayout {...post.data}>
     <Content />
-</XyyLayout>
+</ContentLayout>
