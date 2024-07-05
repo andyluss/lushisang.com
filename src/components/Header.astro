@@ -5,9 +5,8 @@ import { SITE_TITLE } from "../consts";
 
 <header>
     <nav>
-        <h2><a href="/">{SITE_TITLE}</a></h2>
+        <h2 class="title"><a href="/">{SITE_TITLE}</a></h2>
         <div class="internal-links">
-            <HeaderLink href="/">主页</HeaderLink>
             <HeaderLink href="/blog">博文</HeaderLink>
             <HeaderLink href="/xyy">逍遥游</HeaderLink>
             <HeaderLink href="/tech">技术</HeaderLink>
@@ -63,14 +62,13 @@ import { SITE_TITLE } from "../consts";
         background: white;
         box-shadow: 0 2px 8px rgba(var(--black), 5%);
     }
-    h2 {
+    .title {
         margin: 0;
-        font-size: 1em;
         min-width: 4em;
     }
 
-    h2 a,
-    h2 a.active {
+    .title a,
+    .title a.active {
         text-decoration: none;
     }
     nav {
@@ -79,7 +77,7 @@ import { SITE_TITLE } from "../consts";
         justify-content: space-between;
     }
     nav a {
-        padding: 0.5em;
+        padding: 0 0.5em;
         color: var(--black);
         border-bottom: 4px solid transparent;
         text-decoration: none;
