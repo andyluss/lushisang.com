@@ -1,6 +1,7 @@
 ---
 title: 改用 Astro
 pubDate: 2024-06-15
+tags: [技术]
 ---
 
 今天更新个人网站的技术框架，从 VitePress 到 Astro。

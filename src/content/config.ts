@@ -12,19 +12,16 @@ const commonSchema = z.object({
 
 const blog = defineCollection({
   type: "content",
-  // Type-check frontmatter using a schema
   schema: commonSchema,
 });
 
 const xyy = defineCollection({
   type: "content",
-  // Type-check frontmatter using a schema
   schema: commonSchema,
 });
 
 const dev = defineCollection({
   type: "content",
-  // Type-check frontmatter using a schema
   schema: commonSchema,
 });
 export const collections = { blog, xyy, dev };
