@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
-const posts = (await getCollection("tech")).sort(
+const posts = (await getCollection("dev")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 ---
@@ -80,7 +80,7 @@ const posts = (await getCollection("tech")).sort(
                     {
                         posts.reverse().map((post) => (
                             <li>
-                                <a href={`/tech/${post.slug}`}>
+                                <a href={`/dev/${post.slug}`}>
                                     <h5 class="title">{post.data.title}</h5>
                                     <p class="date">
                                         <FormattedDate

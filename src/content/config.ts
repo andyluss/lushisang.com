@@ -22,9 +22,9 @@ const xyy = defineCollection({
   schema: commonSchema,
 });
 
-const tech = defineCollection({
+const dev = defineCollection({
   type: "content",
   // Type-check frontmatter using a schema
   schema: commonSchema,
 });
-export const collections = { blog, xyy, tech };
+export const collections = { blog, xyy, dev };
