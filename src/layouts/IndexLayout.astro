@@ -56,6 +56,8 @@ const posts = (await getCollection(category)).sort(
                 color: rgb(var(--black));
                 line-height: 1;
                 font-size: large;
+                display: flex;
+                justify-content: space-between;
             }
             .date {
                 margin: 0;
@@ -88,10 +90,15 @@ const posts = (await getCollection(category)).sort(
             <section>
                 <ul>
                     {
-                        posts.reverse().map((post) => (
+                        posts.reverse().map((post, index) => (
                             <li>
                                 <a href={`/${category}/${post.slug}`}>
-                                    <h5 class="title">{post.data.title}</h5>
+                                    <h5 class="title">
+                                        {post.data.title}
+                                        <span class="text-gray-400 text-xs">
+                                            {posts.length - index}
+                                        </span>
+                                    </h5>
                                     <p class="date">
                                         <FormattedDate
                                             date={post.data.pubDate}
