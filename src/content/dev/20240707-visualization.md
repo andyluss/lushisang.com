@@ -1,6 +1,6 @@
 ---
 title: ⭐️可视化
-pubDate: 2024-07-06
+pubDate: 2024-07-07
 tags: [思维]
 ---
 Wikipedia 上的 [Geologic time scale] 更新了个[新插图]，比原来的[老插图]，在可视化方面变得更精致了，能更突出重要的信息，即离我们更近的年代。
