@@ -112,8 +112,8 @@ const tags = [
                             <li
                                 class:list={[
                                     "relative",
-                                    post.data.level >= 3
-                                        ? "border-double border-2"
+                                    post.data.level >= 2
+                                        ? "border-2 border-double"
                                         : "border border-solid",
                                     post.data.level >= 3
                                         ? "border-fuchsia-500"
@@ -125,7 +125,13 @@ const tags = [
                                 ]}
                             >
                                 <a href={`/${category}/${post.slug}`}>
-                                    <h5 class="title">
+                                    <h5
+                                        class:list={[
+                                            "title",
+                                            post.data.level >= 3 &&
+                                                "!text-fuchsia-500",
+                                        ]}
+                                    >
                                         {post.data.title}
                                         <span class="text-xs">
                                             {"⭐️".repeat(post.data.level)}
