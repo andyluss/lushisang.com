@@ -43,8 +43,6 @@ const tags = [
             .posts ul li {
                 width: 240px;
                 height: 80px;
-                border-style: solid;
-                border-width: 1px;
                 padding: 4px;
                 margin: 1px;
                 box-sizing: border-box;
@@ -114,6 +112,9 @@ const tags = [
                             <li
                                 class:list={[
                                     "relative",
+                                    post.data.level >= 3
+                                        ? "border-double border-2"
+                                        : "border border-solid",
                                     post.data.level >= 3
                                         ? "border-fuchsia-500"
                                         : post.data.level === 2
