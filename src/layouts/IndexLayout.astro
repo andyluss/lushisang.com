@@ -112,18 +112,22 @@ const tags = [
                     {
                         posts.reverse().map((post, index) => (
                             <li
-                                class={
+                                class:list={[
+                                    "relative",
                                     post.data.level >= 3
-                                        ? "border-orange-400"
-                                        : "border-blue-100"
-                                }
+                                        ? "border-fuchsia-500"
+                                        : post.data.level === 2
+                                          ? "border-orange-300"
+                                          : post.data.level === 1
+                                            ? "border-green-300"
+                                            : "border-blue-100",
+                                ]}
                             >
                                 <a href={`/${category}/${post.slug}`}>
                                     <h5 class="title">
                                         {post.data.title}
-                                        <span class="text-gray-400 text-xs">
+                                        <span class="text-xs">
                                             {"⭐️".repeat(post.data.level)}
-                                            {posts.length - index}
                                         </span>
                                     </h5>
                                     <p class="date">
@@ -137,6 +141,9 @@ const tags = [
                                         </div>
                                     )}
                                 </a>
+                                <div class="text-gray-400 text-xs absolute right-0 bottom-0">
+                                    {posts.length - index}
+                                </div>
                             </li>
                         ))
                     }
