@@ -96,6 +96,7 @@ const posts = (await getCollection(category)).sort(
                                     <h5 class="title">
                                         {post.data.title}
                                         <span class="text-gray-400 text-xs">
+                                            {"⭐️".repeat(post.data.level || 0)}
                                             {posts.length - index}
                                         </span>
                                     </h5>
