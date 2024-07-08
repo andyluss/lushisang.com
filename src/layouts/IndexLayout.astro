@@ -135,7 +135,7 @@ const tags = [
                                             date={post.data.pubDate}
                                         />
                                     </p>
-                                    {post.data.tags && (
+                                    {post.data.tags.length > 0 && (
                                         <div class="tag">
                                             🏷 {post.data.tags.join(", ")}
                                         </div>
