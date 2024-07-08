@@ -3,7 +3,7 @@ import { defineCollection, z } from "astro:content";
 const commonSchema = z.object({
   title: z.string(),
   tags: z.string().array().optional(),
-  level: z.number().optional(),
+  level: z.number().default(0),
   description: z.string().optional(),
   // Transform string to Date object
   pubDate: z.coerce.date(),
