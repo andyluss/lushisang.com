@@ -8,13 +8,14 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 interface Props {
     category: keyof ContentEntryMap;
+    tag?: string;
 }
 
-const { category } = Astro.props;
+const { category, tag } = Astro.props;
 
-const posts = (await getCollection(category)).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
+const posts = (await getCollection(category))
+    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+    .filter((post) => (tag ? post.data.tags.includes(tag) : post));
 
 const tags = [
     ...posts.reduce(
