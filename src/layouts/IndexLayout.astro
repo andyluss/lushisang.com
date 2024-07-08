@@ -16,9 +16,12 @@ const posts = (await getCollection(category)).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 
-const highLevelPosts = (await getCollection(category)).filter(
-    (post) => post.data.level >= 3,
-);
+const tags = [
+    ...posts.reduce(
+        (accTags, post) => new Set([...accTags, ...post.data.tags]),
+        new Set(),
+    ),
+];
 ---
 
 <!doctype html>
@@ -29,14 +32,14 @@ const highLevelPosts = (await getCollection(category)).filter(
             main {
                 width: 1250px;
             }
-            ul {
+            .posts ul {
                 display: flex;
                 flex-wrap: wrap;
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
             }
-            ul li {
+            .posts ul li {
                 width: 240px;
                 height: 80px;
                 border-style: solid;
@@ -45,15 +48,15 @@ const highLevelPosts = (await getCollection(category)).filter(
                 margin: 1px;
                 box-sizing: border-box;
             }
-            ul li * {
+            .posts ul li * {
                 text-decoration: none;
                 transition: 0.2s ease;
             }
-            ul li img {
+            .posts ul li img {
                 margin-bottom: 0.5rem;
                 border-radius: 12px;
             }
-            ul li a {
+            .posts ul li a {
                 display: block;
             }
             .title {
@@ -74,14 +77,14 @@ const highLevelPosts = (await getCollection(category)).filter(
                 color: rgb(var(--gray));
                 font-size: x-small;
             }
-            ul li a:hover .title {
+            .posts ul li a:hover .title {
                 color: rgb(var(--accent));
             }
-            ul a:hover img {
+            .posts ul a:hover img {
                 box-shadow: var(--box-shadow);
             }
             @media (max-width: 720px) {
-                ul li {
+                .posts ul li {
                     width: 100%;
                     height: auto;
                     text-align: center;
@@ -92,7 +95,18 @@ const highLevelPosts = (await getCollection(category)).filter(
     <body>
         <Header />
         <main>
-            <section>
+            <section class="tags">
+                <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
+                    {
+                        tags.map((tag) => (
+                            <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
+                                {tag}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </section>
+            <section class="posts">
                 <ul>
                     {
                         posts.reverse().map((post, index) => (
