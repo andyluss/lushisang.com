@@ -7,156 +7,172 @@ import { type ContentEntryMap, getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
 interface Props {
-    category: keyof ContentEntryMap;
-    tag?: string;
+  category: keyof ContentEntryMap;
+  tag?: string;
 }
 
 const { category, tag } = Astro.props;
 
 const posts = (await getCollection(category))
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-    .filter((post) => (tag ? post.data.tags.includes(tag) : post));
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .filter((post) => (tag ? post.data.tags.includes(tag) : post));
 
-const tags = [
-    ...posts.reduce(
-        (accTags, post) => new Set([...accTags, ...post.data.tags]),
-        new Set(),
-    ),
+const tags: [string, number][] = [
+  ...posts.reduce(
+    (map, post) =>
+      post.data.tags.reduce(
+        (map, tag) => map.set(tag, (map.get(tag) || 0) + 1),
+        map,
+      ),
+    new Map<string, number>(),
+  ),
 ];
+
+const levels: [number, number][] = [
+  ...posts.reduce(
+    (map, post) =>
+      map.set(post.data.level, (map.get(post.data.level) || 0) + 1),
+    new Map(),
+  ),
+].sort((a, b) => b[0] - a[0]);
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        <style>
-            main {
-                width: 1250px;
-            }
-            .posts ul {
-                display: flex;
-                flex-wrap: wrap;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            .posts ul li {
-                width: 240px;
-                height: 80px;
-                padding: 4px;
-                margin: 1px;
-                box-sizing: border-box;
-            }
-            .posts ul li * {
-                text-decoration: none;
-                transition: 0.2s ease;
-            }
-            .posts ul li img {
-                margin-bottom: 0.5rem;
-                border-radius: 12px;
-            }
-            .posts ul li a {
-                display: block;
-            }
-            .title {
-                margin: 0;
-                color: rgb(var(--black));
-                line-height: 1;
-                font-size: large;
-                display: flex;
-                justify-content: space-between;
-            }
-            .date {
-                margin: 0;
-                color: rgb(var(--gray));
-                font-size: x-small;
-            }
-            .tag {
-                margin: 0;
-                color: rgb(var(--gray));
-                font-size: x-small;
-            }
-            .posts ul li a:hover .title {
-                color: rgb(var(--accent));
-            }
-            .posts ul a:hover img {
-                box-shadow: var(--box-shadow);
-            }
-            @media (max-width: 720px) {
-                .posts ul li {
-                    width: 100%;
-                    height: auto;
-                    text-align: center;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
-        <main>
-            <section class="tags">
-                <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
-                    {
-                        tags.map((tag) => (
-                            <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
-                                {tag}
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-            <section class="posts">
-                <ul>
-                    {
-                        posts.reverse().map((post, index) => (
-                            <li
-                                class:list={[
-                                    "relative",
-                                    post.data.level >= 2
-                                        ? "border-2 border-double"
-                                        : "border border-solid",
-                                    post.data.level >= 3
-                                        ? "border-fuchsia-500"
-                                        : post.data.level === 2
-                                          ? "border-orange-300"
-                                          : post.data.level === 1
-                                            ? "border-green-300"
-                                            : "border-blue-100",
-                                ]}
-                            >
-                                <a href={`/${category}/${post.slug}`}>
-                                    <h5
-                                        class:list={[
-                                            "title",
-                                            post.data.level >= 3 &&
-                                                "!text-fuchsia-500",
-                                        ]}
-                                    >
-                                        {post.data.title}
-                                        <span class="text-xs">
-                                            {"⭐️".repeat(post.data.level)}
-                                        </span>
-                                    </h5>
-                                    <p class="date">
-                                        <FormattedDate
-                                            date={post.data.pubDate}
-                                        />
-                                    </p>
-                                    {post.data.tags.length > 0 && (
-                                        <div class="tag">
-                                            🏷 {post.data.tags.join(", ")}
-                                        </div>
-                                    )}
-                                </a>
-                                <div class="text-gray-400 text-xs absolute right-0 bottom-0">
-                                    {posts.length - index}
-                                </div>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-        <Footer />
-    </body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        width: 1250px;
+      }
+      .posts ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .posts ul li {
+        width: 240px;
+        height: 80px;
+        padding: 4px;
+        margin: 1px;
+        box-sizing: border-box;
+      }
+      .posts ul li * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      .posts ul li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+      }
+      .posts ul li a {
+        display: block;
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1;
+        font-size: large;
+        display: flex;
+        justify-content: space-between;
+      }
+      .date {
+        margin: 0;
+        color: rgb(var(--gray));
+        font-size: x-small;
+      }
+      .tag {
+        margin: 0;
+        color: rgb(var(--gray));
+        font-size: x-small;
+      }
+      .posts ul li a:hover .title {
+        color: rgb(var(--accent));
+      }
+      .posts ul a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      @media (max-width: 720px) {
+        .posts ul li {
+          width: 100%;
+          height: auto;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="levels">
+        <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
+          {
+            levels.map(([level, count]) => (
+              <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
+                {level ? "⭐️".repeat(level) : "No Star"}({count})
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section class="tags">
+        <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
+          {
+            tags.map(([tag, count]) => (
+              <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
+                {tag}({count})
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section class="posts">
+        <ul>
+          {
+            posts.reverse().map((post, index) => (
+              <li
+                class:list={[
+                  "relative",
+                  post.data.level >= 2
+                    ? "border-2 border-double"
+                    : "border border-solid",
+                  post.data.level >= 3
+                    ? "border-fuchsia-500"
+                    : post.data.level === 2
+                      ? "border-orange-300"
+                      : post.data.level === 1
+                        ? "border-green-300"
+                        : "border-blue-100",
+                ]}
+              >
+                <a href={`/${category}/${post.slug}`}>
+                  <h5
+                    class:list={[
+                      "title",
+                      post.data.level >= 3 && "!text-fuchsia-500",
+                    ]}
+                  >
+                    {post.data.title}
+                    <span class="text-xs">{"⭐️".repeat(post.data.level)}</span>
+                  </h5>
+                  <p class="date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                  {post.data.tags.length > 0 && (
+                    <div class="tag">🏷 {post.data.tags.join(", ")}</div>
+                  )}
+                </a>
+                <div class="text-gray-400 text-xs absolute right-0 bottom-0">
+                  {posts.length - index}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

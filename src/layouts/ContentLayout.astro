@@ -8,90 +8,80 @@ import FormattedDate from "../components/FormattedDate.astro";
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, tags, level, description, pubDate, updatedDate, heroImage } =
-    Astro.props;
+  Astro.props;
 ---
 
 <html lang="en">
-    <head>
-        <BaseHead title={title} description={description || title} />
-        <style>
-            main {
-                width: 100%;
-                max-width: 100%;
-                margin: 0;
-            }
-            .hero-image {
-                width: 100%;
-            }
-            .hero-image img {
-                display: block;
-                margin: 0 auto;
-                border-radius: 12px;
-                box-shadow: var(--box-shadow);
-            }
-            .prose {
-                width: 720px;
-                max-width: 100%;
-                margin: auto;
-                color: rgb(var(--gray-dark));
-            }
-            .title {
-                padding: 1em 0;
-                text-align: center;
-                line-height: 1;
-            }
-            .date {
-                margin-bottom: 0.5em;
-                color: rgb(var(--gray));
-            }
-            .last-updated-on {
-                font-style: italic;
-            }
-        </style>
-    </head>
+  <head>
+    <BaseHead title={title} description={description || title} />
+    <style>
+      main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+      .hero-image {
+        width: 100%;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+      }
+      .prose {
+        width: 720px;
+        max-width: 100%;
+        margin: auto;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+  </head>
 
-    <body>
-        <Header />
-        <main>
-            <article>
-                <div class="hero-image">
-                    {
-                        heroImage && (
-                            <img
-                                width={1020}
-                                height={510}
-                                src={heroImage}
-                                alt=""
-                            />
-                        )
-                    }
-                </div>
-                <div class="prose">
-                    <div class="title">
-                        <div>{"⭐️".repeat(level)}</div>
-                        <div class="date">
-                            <FormattedDate date={pubDate} />
-                            {
-                                updatedDate && (
-                                    <div class="last-updated-on">
-                                        Last updated on{" "}
-                                        <FormattedDate date={updatedDate} />
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <h1>{title}</h1>
-                        {
-                            tags.length > 0 && (
-                                <div class="mb-1">🏷 {tags.join(", ")}</div>
-                            )
-                        }
-                        <hr />
-                    </div>
-                    <slot />
-                </div>
-            </article>
-        </main>
-        <Footer />
-    </body>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="hero-image">
+          {
+            heroImage && (
+              <img width={1020} height={510} src={heroImage} alt="" />
+            )
+          }
+        </div>
+        <div class="prose">
+          <div class="title">
+            <div>{"⭐️".repeat(level)}</div>
+            <div class="date">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="last-updated-on">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+            <h1>{title}</h1>
+            {tags.length > 0 && <div class="mb-1">🏷 {tags.join(", ")}</div>}
+            <hr />
+          </div>
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
