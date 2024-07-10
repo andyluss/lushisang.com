@@ -5,10 +5,15 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+interface Props {
+  post: CollectionEntry<"blog">;
+}
 
-const { title, tags, level, description, pubDate, updatedDate, heroImage } =
-  Astro.props;
+const {
+  slug,
+  collection,
+  data: { title, tags, level, description, pubDate, updatedDate, heroImage },
+} = Astro.props.post;
 ---
 
 <html lang="en">
@@ -79,6 +84,12 @@ const { title, tags, level, description, pubDate, updatedDate, heroImage } =
             <hr />
           </div>
           <slot />
+          <a
+            href={`https://github.com/andyluss/lushisang.com/edit/main/src/content/${collection}/${slug}.md`}
+            class="text-sm underline"
+          >
+            编辑>>
+          </a>
         </div>
       </article>
     </main>
