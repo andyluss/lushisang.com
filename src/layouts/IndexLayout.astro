@@ -128,7 +128,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
       <section class="posts">
         <ul>
           {
-            posts.map((post, index) => (
+            posts.reverse().map((post, index) => (
               <li
                 class:list={[
                   "relative",

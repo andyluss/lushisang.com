@@ -13,7 +13,7 @@ export type LevelItem = [Level, number];
 
 export async function getPosts(collection: Collection) {
   return (await getCollection(collection)).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
   );
 }
 
@@ -63,7 +63,7 @@ export async function getAll(
 ) {
   const allPosts = await getPosts(collection);
   const posts = filterPosts(allPosts, tag, level);
-  const tags = getTags(posts, true);
-  const levels = getLevels(posts, true);
+  const tags = getTags(allPosts, true);
+  const levels = getLevels(allPosts, true);
   return { posts, tags, levels };
 }
