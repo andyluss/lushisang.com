@@ -17,7 +17,7 @@ export async function getPosts(collection: Collection) {
   );
 }
 
-export function getTags(posts: Post[], all: boolean = false): TagItem[] {
+export function getTags(posts: Post[], all: boolean = false) {
   const res = [
     ...posts.reduce(
       (map, post) =>
@@ -25,7 +25,7 @@ export function getTags(posts: Post[], all: boolean = false): TagItem[] {
           (map, tag) => map.set(tag, (map.get(tag) || 0) + 1),
           map,
         ),
-      new Map<string, number>(),
+      new Map<Tag, number>(),
     ),
   ];
   if (all) {
@@ -34,14 +34,14 @@ export function getTags(posts: Post[], all: boolean = false): TagItem[] {
   return res;
 }
 
-export function getLevels(posts: Post[], all: boolean = false): LevelItem[] {
+export function getLevels(posts: Post[], all: boolean = false) {
   const res = [
     ...posts.reduce(
       (map, post) =>
         map.set(post.data.level, (map.get(post.data.level) || 0) + 1),
-      new Map(),
+      new Map<number, number>(),
     ),
-  ].sort((a, b) => b[0] - a[0]);
+  ].sort((a, b) => b[0] - a[0]) as LevelItem[];
   if (all) {
     res.unshift(["All", posts.length]);
   }
