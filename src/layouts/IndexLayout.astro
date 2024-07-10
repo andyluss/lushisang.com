@@ -3,19 +3,22 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { type ContentEntryMap, type CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import {
+  type Collection,
+  type Tag,
+  type Level,
+  getAll,
+} from "../utils/content";
 
 interface Props {
-  category: keyof ContentEntryMap;
-  tag: string;
-  level: number | "All";
-  posts: CollectionEntry<"xyy">[];
-  levels: [number | "All", number][];
-  tags: [string, number][];
+  collection: Collection;
+  tag?: Tag;
+  level?: Level;
 }
 
-const { category, tag, level, posts, levels, tags } = Astro.props;
+const { collection, tag = "All", level = "All" } = Astro.props;
+const { posts, tags, levels } = await getAll(collection, tag, level);
 ---
 
 <!doctype html>
@@ -89,16 +92,15 @@ const { category, tag, level, posts, levels, tags } = Astro.props;
       <section class="levels">
         <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
           {
-            levels.map(([eachLevel, count]) => (
+            levels.map(([lvl, count]) => (
               <li
                 class={
                   "mr-1 mb-1 px-1 rounded " +
-                  `${level === eachLevel ? "bg-blue-300" : "bg-gray-200"}`
+                  `${level === lvl ? "bg-blue-300" : "bg-gray-200"}`
                 }
               >
-                <a href={`/${category}/filter/${eachLevel}-${tag ?? "All"}`}>
-                  {eachLevel === "All" ? "All" : "⭐️".repeat(eachLevel)}(
-                  {count})
+                <a href={`/${collection}/filter/${lvl}-${tag ?? "All"}`}>
+                  {lvl === "All" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
                 </a>
               </li>
             ))
@@ -108,15 +110,15 @@ const { category, tag, level, posts, levels, tags } = Astro.props;
       <section class="tags">
         <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
           {
-            tags.map(([eachTag, count]) => (
+            tags.map(([tg, count]) => (
               <li
                 class={
                   "mr-1 mb-1 px-1 rounded " +
-                  `${tag === eachTag ? "bg-blue-300" : "bg-gray-200"}`
+                  `${tag === tg ? "bg-blue-300" : "bg-gray-200"}`
                 }
               >
-                <a href={`/${category}/filter/${level ?? "All"}-${eachTag}`}>
-                  {eachTag}({count})
+                <a href={`/${collection}/filter/${level ?? "All"}-${tg}`}>
+                  {tg === "All" ? "全部" : tg}({count})
                 </a>
               </li>
             ))
@@ -126,7 +128,7 @@ const { category, tag, level, posts, levels, tags } = Astro.props;
       <section class="posts">
         <ul>
           {
-            posts.reverse().map((post, index) => (
+            posts.map((post, index) => (
               <li
                 class:list={[
                   "relative",
@@ -142,7 +144,7 @@ const { category, tag, level, posts, levels, tags } = Astro.props;
                         : "border-blue-100",
                 ]}
               >
-                <a href={`/${category}/${post.slug}`}>
+                <a href={`/${collection}/${post.slug}`}>
                   <h5
                     class:list={[
                       "title",
