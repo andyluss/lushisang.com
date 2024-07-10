@@ -3,38 +3,19 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { type ContentEntryMap, getCollection } from "astro:content";
+import { type ContentEntryMap, type CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
 interface Props {
   category: keyof ContentEntryMap;
-  tag?: string;
+  tag: string;
+  level: number | "All";
+  posts: CollectionEntry<"xyy">[];
+  levels: [number | "All", number][];
+  tags: [string, number][];
 }
 
-const { category, tag } = Astro.props;
-
-const posts = (await getCollection(category))
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-  .filter((post) => (tag ? post.data.tags.includes(tag) : post));
-
-const tags: [string, number][] = [
-  ...posts.reduce(
-    (map, post) =>
-      post.data.tags.reduce(
-        (map, tag) => map.set(tag, (map.get(tag) || 0) + 1),
-        map,
-      ),
-    new Map<string, number>(),
-  ),
-];
-
-const levels: [number, number][] = [
-  ...posts.reduce(
-    (map, post) =>
-      map.set(post.data.level, (map.get(post.data.level) || 0) + 1),
-    new Map(),
-  ),
-].sort((a, b) => b[0] - a[0]);
+const { category, tag, level, posts, levels, tags } = Astro.props;
 ---
 
 <!doctype html>
@@ -108,9 +89,17 @@ const levels: [number, number][] = [
       <section class="levels">
         <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
           {
-            levels.map(([level, count]) => (
-              <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
-                {level ? "⭐️".repeat(level) : "No Star"}({count})
+            levels.map(([eachLevel, count]) => (
+              <li
+                class={
+                  "mr-1 mb-1 px-1 rounded " +
+                  `${level === eachLevel ? "bg-blue-300" : "bg-gray-200"}`
+                }
+              >
+                <a href={`/${category}/filter/${eachLevel}-${tag ?? "All"}`}>
+                  {eachLevel === "All" ? "All" : "⭐️".repeat(eachLevel)}(
+                  {count})
+                </a>
               </li>
             ))
           }
@@ -119,9 +108,16 @@ const levels: [number, number][] = [
       <section class="tags">
         <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
           {
-            tags.map(([tag, count]) => (
-              <li class="mr-1 mb-1 bg-gray-200 border-2 rounded">
-                {tag}({count})
+            tags.map(([eachTag, count]) => (
+              <li
+                class={
+                  "mr-1 mb-1 px-1 rounded " +
+                  `${tag === eachTag ? "bg-blue-300" : "bg-gray-200"}`
+                }
+              >
+                <a href={`/${category}/filter/${level ?? "All"}-${eachTag}`}>
+                  {eachTag}({count})
+                </a>
               </li>
             ))
           }
@@ -140,7 +136,7 @@ const levels: [number, number][] = [
                   post.data.level >= 3
                     ? "border-fuchsia-500"
                     : post.data.level === 2
-                      ? "border-orange-300"
+                      ? "border-orange-500"
                       : post.data.level === 1
                         ? "border-green-300"
                         : "border-blue-100",

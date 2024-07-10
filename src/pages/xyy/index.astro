@@ -1,5 +1,17 @@
 ---
+import { getPosts, getTags, getLevels } from "../../utils/content";
 import IndexLayout from "../../layouts/IndexLayout.astro";
+
+const posts = await getPosts();
+const tags = getTags(posts);
+const levels = getLevels(posts);
 ---
 
-<IndexLayout category="xyy" />
+<IndexLayout
+  category="xyy"
+  tag="All"
+  level="All"
+  posts={posts}
+  tags={tags}
+  levels={levels}
+/>
