@@ -1,7 +1,6 @@
 ---
 import { getAll } from "../../../utils/content";
 import IndexLayout from "../../../layouts/IndexLayout.astro";
-import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const { tags, levels } = await getAll("xyy");
@@ -12,15 +11,9 @@ export async function getStaticPaths() {
     .flat();
 }
 
-interface Props {
-  posts: CollectionEntry<"xyy">[];
-  tags: [string, number][];
-  levels: [number, number][];
-}
-
 const { filter } = Astro.params;
 const [levelStr, tag] = filter.split("-");
 const level = levelStr === "All" ? "All" : Number(levelStr);
 ---
 
-<IndexLayout collection="xyy" tag={tag} level={level} />
+<IndexLayout collection="xyy" {tag} {level} />
