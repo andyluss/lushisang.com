@@ -1,0 +1,19 @@
+---
+import { getAll } from "../../../utils/content";
+import IndexLayout from "../../../layouts/IndexLayout.astro";
+
+export async function getStaticPaths() {
+  const { tags, levels } = await getAll("blog");
+  return levels
+    .map((level) =>
+      tags.map((tag) => ({ params: { filter: `${level[0]}-${tag[0]}` } })),
+    )
+    .flat();
+}
+
+const { filter } = Astro.params;
+const [levelStr, tag] = filter.split("-");
+const level = levelStr === "All" ? "All" : Number(levelStr);
+---
+
+<IndexLayout collection="blog" {tag} {level} />
