@@ -41,7 +41,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
               >
                 <a
                   href={`/${collection}/filter/${lvl}-${tag ?? "All"}`}
-                  class="text-orange-500 hover:text-orange-900"
+                  class="text-orange-600 hover:text-orange-500"
                 >
                   {lvl === "All" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
                 </a>
@@ -62,7 +62,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
               >
                 <a
                   href={`/${collection}/filter/${level ?? "All"}-${tg}`}
-                  class="text-blue-500 hover:text-blue-900"
+                  class="text-blue-600 hover:text-blue-500"
                 >
                   {tg === "All" ? "全部" : tg}({count})
                 </a>
