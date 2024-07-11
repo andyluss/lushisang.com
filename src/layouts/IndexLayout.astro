@@ -67,11 +67,6 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
         color: rgb(var(--gray));
         font-size: x-small;
       }
-      .tag {
-        margin: 0;
-        color: rgb(var(--gray));
-        font-size: x-small;
-      }
       .posts ul li a:hover .title {
         color: rgb(var(--accent));
       }
@@ -156,11 +151,14 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
-                  <span class="text-xs">{"⭐️".repeat(post.data.level)}</span>
-                  {post.data.tags.length > 0 && (
-                    <span class="tag">🏷 {post.data.tags.join(", ")}</span>
-                  )}
                 </a>
+
+                <div class="m-0 text-xs text-blue-500 absolute bottom-0">
+                  <span>{"⭐️".repeat(post.data.level)}</span>
+                  {post.data.tags.length > 0 && (
+                    <span>🏷 {post.data.tags.join(", ")}</span>
+                  )}
+                </div>
                 <div class="text-gray-400 text-xs absolute right-1 bottom-0">
                   {posts.length - index}
                 </div>
