@@ -85,16 +85,19 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
     <Header />
     <main>
       <section class="levels">
-        <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
+        <ul class="list-none p-0 m-0 flex flex-wrap">
           {
             levels.map(([lvl, count]) => (
               <li
                 class={
-                  "mr-1 mb-1 px-1 rounded " +
+                  "mr-1 mb-1 px-1 rounded text-sm " +
                   `${level === lvl ? "bg-blue-300" : "bg-gray-200"}`
                 }
               >
-                <a href={`/${collection}/filter/${lvl}-${tag ?? "All"}`}>
+                <a
+                  href={`/${collection}/filter/${lvl}-${tag ?? "All"}`}
+                  class="text-blue-500"
+                >
                   {lvl === "All" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
                 </a>
               </li>
@@ -103,16 +106,19 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
         </ul>
       </section>
       <section class="tags">
-        <ul class="list-none p-0 m-0 flex flex-wrap text-sm">
+        <ul class="list-none p-0 m-0 flex flex-wrap">
           {
             tags.map(([tg, count]) => (
               <li
                 class={
-                  "mr-1 mb-1 px-1 rounded " +
+                  "mr-1 mb-1 px-1 rounded text-sm " +
                   `${tag === tg ? "bg-blue-300" : "bg-gray-200"}`
                 }
               >
-                <a href={`/${collection}/filter/${level ?? "All"}-${tg}`}>
+                <a
+                  href={`/${collection}/filter/${level ?? "All"}-${tg}`}
+                  class="text-blue-500"
+                >
                   {tg === "All" ? "全部" : tg}({count})
                 </a>
               </li>
