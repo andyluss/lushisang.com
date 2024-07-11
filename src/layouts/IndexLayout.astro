@@ -17,7 +17,7 @@ interface Props {
   level?: Level;
 }
 
-const { collection, tag = "All", level = "All" } = Astro.props;
+const { collection, tag = "all", level = "all" } = Astro.props;
 const { posts, tags, levels } = await getAll(collection, tag, level);
 ---
 
@@ -40,10 +40,10 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
                 }
               >
                 <a
-                  href={`/${collection}/filter/${lvl}-${tag ?? "All"}`}
+                  href={`/${collection}/filter/${lvl}-${tag ?? "all"}`}
                   class="text-orange-600 hover:text-orange-500"
                 >
-                  {lvl === "All" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
+                  {lvl === "all" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
                 </a>
               </li>
             ))
@@ -61,10 +61,10 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
                 }
               >
                 <a
-                  href={`/${collection}/filter/${level ?? "All"}-${tg}`}
+                  href={`/${collection}/filter/${level ?? "all"}-${tg}`}
                   class="text-blue-600 hover:text-blue-500"
                 >
-                  {tg === "All" ? "全部" : tg}({count})
+                  {tg === "all" ? "全部" : tg}({count})
                 </a>
               </li>
             ))

@@ -8,7 +8,7 @@ export type Collection = keyof ContentEntryMap;
 export type Post = CollectionEntry<Collection>;
 export type Tag = string;
 export type TagItem = [Tag, number];
-export type Level = number | "All";
+export type Level = number | "all";
 export type LevelItem = [Level, number];
 
 export async function getPosts(collection: Collection) {
@@ -29,7 +29,7 @@ export function getTags(posts: Post[], all: boolean = false) {
     ),
   ];
   if (all) {
-    res.unshift(["All", posts.length]);
+    res.unshift(["all", posts.length]);
   }
   return res;
 }
@@ -43,7 +43,7 @@ export function getLevels(posts: Post[], all: boolean = false) {
     ),
   ].sort((a, b) => b[0] - a[0]) as LevelItem[];
   if (all) {
-    res.unshift(["All", posts.length]);
+    res.unshift(["all", posts.length]);
   }
   return res;
 }
@@ -51,15 +51,15 @@ export function getLevels(posts: Post[], all: boolean = false) {
 export function filterPosts(posts: Post[], tag: Tag, level: Level) {
   return posts.filter(
     (post) =>
-      (tag === "All" ? true : post.data.tags.includes(tag)) &&
-      (level === "All" ? true : post.data.level === level),
+      (tag === "all" ? true : post.data.tags.includes(tag)) &&
+      (level === "all" ? true : post.data.level === level),
   );
 }
 
 export async function getAll(
   collection: Collection,
-  tag: Tag = "All",
-  level: Level = "All",
+  tag: Tag = "all",
+  level: Level = "all",
 ) {
   const allPosts = await getPosts(collection);
   const posts = filterPosts(allPosts, tag, level);

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { filter } = Astro.params;
 const [levelStr, tag] = filter.split("-");
-const level = levelStr === "All" ? "All" : Number(levelStr);
+const level = levelStr === "all" ? "all" : Number(levelStr);
 ---
 
 <IndexLayout collection="dev" {tag} {level} />
