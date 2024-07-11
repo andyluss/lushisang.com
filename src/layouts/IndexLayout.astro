@@ -152,13 +152,13 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
                     ]}
                   >
                     {post.data.title}
-                    <span class="text-xs">{"⭐️".repeat(post.data.level)}</span>
                   </h5>
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
+                  <span class="text-xs">{"⭐️".repeat(post.data.level)}</span>
                   {post.data.tags.length > 0 && (
-                    <div class="tag">🏷 {post.data.tags.join(", ")}</div>
+                    <span class="tag">🏷 {post.data.tags.join(", ")}</span>
                   )}
                 </a>
                 <div class="text-gray-400 text-xs absolute right-1 bottom-0">
