@@ -21,7 +21,7 @@ const xyy = defineCollection({
   schema: commonSchema,
 });
 
-const rbsys = defineCollection({
+const rainbow = defineCollection({
   type: "content",
   schema: commonSchema,
 });
@@ -30,4 +30,4 @@ const dev = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-export const collections = { blog, xyy, rbsys, dev };
+export const collections = { blog, xyy, rainbow, dev };
