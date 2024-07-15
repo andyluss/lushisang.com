@@ -5,10 +5,11 @@ import { SITE_TITLE } from "../consts";
 
 <header>
   <nav>
-    <h3 class="title"><a href="/">{SITE_TITLE}</a></h3>
-    <div class="internal-links">
-      <HeaderLink href="/xyy">逍遥游</HeaderLink>
-      <HeaderLink href="/dev">开发</HeaderLink>
+    <div class="title"><a href="/">{SITE_TITLE}</a></div>
+    <div>
+      <HeaderLink href="/xyy">🧚逍遥游</HeaderLink>
+      <HeaderLink href="/rbsys">🌈彩虹系</HeaderLink>
+      <HeaderLink href="/dev">🧑‍💻开发</HeaderLink>
     </div>
     <div class="social-links">
       <a href="https://mastodon.social/@lushisang" target="_blank">
@@ -50,6 +51,7 @@ import { SITE_TITLE } from "../consts";
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
   .title {
+    font-size: 1.2em;
     margin: 0;
     min-width: 5em;
   }
@@ -64,9 +66,9 @@ import { SITE_TITLE } from "../consts";
     justify-content: space-between;
   }
   nav a {
-    padding: 0 0.5em;
+    padding: 0 0.1em;
     color: var(--black);
-    border-bottom: 4px solid transparent;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
   }
   nav a.active {
