@@ -21,8 +21,13 @@ const xyy = defineCollection({
   schema: commonSchema,
 });
 
+const rbsys = defineCollection({
+  type: "content",
+  schema: commonSchema,
+});
+
 const dev = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-export const collections = { blog, xyy, dev };
+export const collections = { blog, xyy, rbsys, dev };
