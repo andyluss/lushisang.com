@@ -111,6 +111,10 @@ function bg(post: Post) {
                   </h5>
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
+                    {post.data.updatedDate && (
+                      <span>↻</span>
+                      <FormattedDate date={post.data.updatedDate} />
+                    )}
                   </p>
                 </a>
 
