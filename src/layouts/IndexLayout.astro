@@ -128,7 +128,7 @@ function star(post: Post) {
                     <span>🏷 {post.data.tags.join(", ")}</span>
                   )}
                 </div>
-                <div class="absolute right-1 bottom-[1px] flex items-end">
+                <div class="absolute right-1 bottom-[1px] flex items-end space-x-1">
                   {/* prettier-ignore */}
                   <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
                   <div class="text-gray-400 text-xs">
