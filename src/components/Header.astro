@@ -9,7 +9,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       <a href="/">{SITE_TITLE}</a>
       <a href="/" class="text-sm">{SITE_DESCRIPTION}</a>
     </div>
-    <div>
+    <div class="tabs">
       <HeaderLink href="/xyy">🧚逍遥游</HeaderLink>
       <HeaderLink href="/rainbow">🌈彩虹系</HeaderLink>
       <HeaderLink href="/dev">🧑‍💻开发</HeaderLink>
@@ -49,7 +49,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <style>
   header {
     margin: 0;
-    padding: 0 1em;
+    padding: 0 0.2em;
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
@@ -59,12 +59,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     align-items: center;
     font-size: 1.2em;
     margin: 0;
-    min-width: 5em;
-  }
-
-  .title a,
-  .title a.active {
-    text-decoration: none;
+    min-width: 6em;
   }
   nav {
     display: flex;
@@ -74,11 +69,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   nav a {
     padding: 0 0.1em;
     color: var(--black);
+  }
+  nav .tabs a {
     border-bottom: 2px solid transparent;
     text-decoration: none;
   }
-  nav a.active {
-    text-decoration: none;
+  nav .tabs a.active {
     border-bottom-color: var(--accent);
   }
   .social-links,
