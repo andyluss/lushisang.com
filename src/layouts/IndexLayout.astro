@@ -34,14 +34,17 @@ function border(post: Post) {
   ];
 }
 
-function bg(post: Post) {
-  return post.data.level >= 3
-    ? "bg-fuchsia-500"
-    : post.data.level === 2
-      ? "bg-orange-500"
-      : post.data.level === 1
-        ? "bg-blue-500"
-        : "bg-blue-100";
+function star(post: Post) {
+  return (
+    "text-base leading-4 pt-[3px] px-[2px] rounded " +
+    (post.data.level >= 3
+      ? "bg-fuchsia-500"
+      : post.data.level === 2
+        ? "bg-orange-500"
+        : post.data.level === 1
+          ? "bg-blue-500"
+          : "bg-blue-100")
+  );
 }
 ---
 
@@ -112,20 +115,25 @@ function bg(post: Post) {
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                     {post.data.updatedDate && (
-                      <span>↻</span>
-                      <FormattedDate date={post.data.updatedDate} />
+                      <>
+                        <span>↻</span>
+                        <FormattedDate date={post.data.updatedDate} />
+                      </>
                     )}
                   </p>
                 </a>
 
                 <div class="status m-0 text-xs text-blue-500 absolute bottom-0">
-                  <span class={bg(post)}>{"⭐️".repeat(post.data.level)}</span>
                   {post.data.tags.length > 0 && (
                     <span>🏷 {post.data.tags.join(", ")}</span>
                   )}
                 </div>
-                <div class="text-gray-400 text-xs absolute right-1 bottom-0">
-                  {posts.length - index}
+                <div class="absolute right-1 bottom-[1px] flex items-end">
+                  {/* prettier-ignore */}
+                  <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
+                  <div class="text-gray-400 text-xs">
+                    {posts.length - index}
+                  </div>
                 </div>
               </li>
             ))
@@ -137,7 +145,7 @@ function bg(post: Post) {
 
     <style>
       main {
-        width: 1250px;
+        width: 1656px;
       }
       .posts ul {
         display: flex;
@@ -147,7 +155,7 @@ function bg(post: Post) {
         padding: 0;
       }
       .posts ul li {
-        width: 240px;
+        width: 200px;
         height: 80px;
         padding: 4px;
         margin: 1px;
