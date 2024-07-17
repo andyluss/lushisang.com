@@ -43,16 +43,13 @@ const {
         color: rgb(var(--gray-dark));
       }
       .title {
-        padding: 1em 0;
+        padding-bottom: 1em;
         text-align: center;
         line-height: 1;
       }
       .date {
         margin-bottom: 0.5em;
         color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
       }
     </style>
   </head>
@@ -70,20 +67,22 @@ const {
         </div>
         <div class="prose">
           <div class="title">
-            <div>{"⭐️".repeat(level)}</div>
+            <h2>{title}</h2>
             <div class="date">
               <FormattedDate date={pubDate} />
               {
                 updatedDate && (
-                  <div class="last-updated-on">
-                    更新于
+                  <>
+                    <span> 🎋 ↻更新于</span>
                     <FormattedDate date={updatedDate} />
-                  </div>
+                  </>
                 )
               }
             </div>
-            <h1>{title}</h1>
-            {tags.length > 0 && <div class="mb-1">🏷 {tags.join(", ")}</div>}
+            <div class="mb-1">
+              {"⭐️".repeat(level)}
+              {tags.length > 0 && "🏷 " + tags.join(", ")}
+            </div>
             <hr />
           </div>
           <slot />
