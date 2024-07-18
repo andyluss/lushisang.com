@@ -59,7 +59,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     align-items: center;
     font-size: 1.2em;
     margin: 0;
-    min-width: 6em;
+    min-width: 140px;
   }
   nav {
     display: flex;
@@ -76,9 +76,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   nav .tabs a.active {
     border-bottom-color: var(--accent);
   }
-  .social-links,
-  .social-links a {
+  .social-links {
     display: flex;
+    justify-content: space-around;
+    min-width: 140px;
   }
   @media (max-width: 720px) {
     .social-links {
