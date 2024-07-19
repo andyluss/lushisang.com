@@ -36,7 +36,7 @@ function border(post: Post) {
 
 function star(post: Post) {
   return (
-    "text-base leading-4 pt-[3px] px-[2px] rounded " +
+    "w-3.5 text-xs leading-3 pt-[2px] pl-[1px] rounded " +
     (post.data.level >= 3
       ? "bg-fuchsia-500"
       : post.data.level === 2
@@ -128,9 +128,13 @@ function star(post: Post) {
                     <span>🏷 {post.data.tags.join(", ")}</span>
                   )}
                 </div>
-                <div class="absolute right-1 bottom-[1px] flex items-end space-x-1">
+                <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
                   {/* prettier-ignore */}
-                  <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
+                  {!!post.data.level && (
+                    <div class={star(post)}>
+                      {"⭐️".repeat(post.data.level)}
+                    </div>
+                  )}
                   <div class="text-gray-400 text-xs">
                     {posts.length - index}
                   </div>
