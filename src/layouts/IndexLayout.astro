@@ -36,7 +36,7 @@ function border(post: Post) {
 
 function star(post: Post) {
   return (
-    "w-3.5 text-xs leading-3 pt-[2px] pl-[1px] rounded " +
+    "w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center " +
     (post.data.level >= 3
       ? "bg-fuchsia-500"
       : post.data.level === 2
