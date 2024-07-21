@@ -80,21 +80,23 @@ function star(post: Post) {
       <section>
         <ul class="list-none p-0 m-0 flex flex-wrap">
           {
-            tags.map(([tg, count]) => (
-              <li
-                class={
-                  "mr-1 mb-1 px-1 rounded text-sm " +
-                  `${tag === tg ? "bg-blue-300" : "bg-gray-200"}`
-                }
-              >
-                <a
-                  href={`/${collection}/filter/${level ?? "all"}-${tg}`}
-                  class="text-blue-600 hover:text-blue-500"
+            tags
+              .sort((a, b) => b[1] - a[1])
+              .map(([tg, count]) => (
+                <li
+                  class={
+                    "mr-1 mb-1 px-1 rounded text-sm " +
+                    `${tag === tg ? "bg-blue-300" : "bg-gray-200"}`
+                  }
                 >
-                  {tg === "all" ? "全部" : tg}({count})
-                </a>
-              </li>
-            ))
+                  <a
+                    href={`/${collection}/filter/${level ?? "all"}-${tg}`}
+                    class="text-blue-600 hover:text-blue-500"
+                  >
+                    {tg === "all" ? "全部" : tg}({count})
+                  </a>
+                </li>
+              ))
           }
         </ul>
       </section>
