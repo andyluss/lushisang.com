@@ -118,8 +118,7 @@ function star(post: Post) {
                     <FormattedDate date={post.data.pubDate} />
                     {post.data.updatedDate && (
                       <>
-                        <span>↻</span>
-                        <FormattedDate date={post.data.updatedDate} />
+                        ↻<FormattedDate date={post.data.updatedDate} />
                       </>
                     )}
                   </p>
@@ -189,7 +188,7 @@ function star(post: Post) {
       .date {
         margin: 0;
         color: rgb(var(--gray));
-        font-size: x-small;
+        font-size: 10px;
       }
       .posts ul li a:hover .title {
         color: rgb(var(--accent));
