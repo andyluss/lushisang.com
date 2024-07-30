@@ -124,7 +124,7 @@ function star(post: Post) {
                   </p>
                 </a>
 
-                <div class="status m-0 text-xs text-blue-500 absolute bottom-0">
+                <div class="m-0 text-xs text-blue-500 absolute bottom-0">
                   {post.data.tags.length > 0 && (
                     <span>{post.data.tags.join(", ")}</span>
                   )}
@@ -195,15 +195,6 @@ function star(post: Post) {
       }
       .posts ul a:hover img {
         box-shadow: var(--box-shadow);
-      }
-      @media (max-width: 720px) {
-        .posts ul li {
-          width: 100%;
-          height: auto;
-        }
-        .posts ul li .status {
-          position: relative;
-        }
       }
     </style>
   </body>
