@@ -26,8 +26,8 @@ const rainbow = defineCollection({
   schema: commonSchema,
 });
 
-const dev = defineCollection({
+const exp = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-export const collections = { blog, xyy, rainbow, dev };
+export const collections = { blog, xyy, rainbow, exp };
