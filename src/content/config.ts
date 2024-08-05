@@ -21,8 +21,8 @@ const xyy = defineCollection({
   schema: commonSchema,
 });
 
-const exp = defineCollection({
+const studio = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-export const collections = { blog, xyy, exp };
+export const collections = { blog, xyy, studio };
