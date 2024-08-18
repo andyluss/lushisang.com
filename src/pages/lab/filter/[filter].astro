@@ -3,7 +3,7 @@ import { getAll } from "../../../utils/content";
 import IndexLayout from "../../../layouts/IndexLayout.astro";
 
 export async function getStaticPaths() {
-  const { tags, levels } = await getAll("studio");
+  const { tags, levels } = await getAll("lab");
   return levels
     .map((level) =>
       tags.map((tag) => ({ params: { filter: `${level[0]}-${tag[0]}` } })),
@@ -16,4 +16,4 @@ const [levelStr, tag] = filter.split("-");
 const level = levelStr === "all" ? "all" : Number(levelStr);
 ---
 
-<IndexLayout collection="studio" {tag} {level} />
+<IndexLayout collection="lab" {tag} {level} />
