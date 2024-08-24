@@ -2,6 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 const commonSchema = z.object({
   title: z.string().max(20),
+  subTitle: z.string().max(40).optional(),
   tags: z.string().array().default([]),
   level: z.number().default(0),
   description: z.string().optional(),

@@ -14,7 +14,16 @@ interface Props {
 const {
   slug,
   collection,
-  data: { title, tags, level, description, pubDate, updatedDate, heroImage },
+  data: {
+    title,
+    subTitle,
+    tags,
+    level,
+    description,
+    pubDate,
+    updatedDate,
+    heroImage,
+  },
 } = Astro.props;
 ---
 
@@ -68,6 +77,7 @@ const {
         <div class="prose">
           <div class="title">
             <h2>{title}</h2>
+            <h4>{subTitle}</h4>
             <div class="date">
               <FormattedDate date={pubDate} />
               {
