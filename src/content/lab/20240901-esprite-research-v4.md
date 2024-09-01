@@ -19,6 +19,7 @@ tags: [📆目标, 🐈逍遥猫]
 3. [VRoid]: 3D 建模，给每个人，在每个地方。
 4: [VTube Studio]: 一款专为虚拟 YouTube 用户打造的应用程序，可让您轻松有趣地将自己的 Live2D 模型变为现实。
 5. [EasyVtuber]：魔改自久负盛名的talking head anime项目，以技术落地为目标增加了大量实用特性，全力保证配完环境就能开播。
+6. [Inochi2D]：一个实时二维皮套动画库。在运行时，根据给定的参数，对绑定在分层美术资源上的2D网格进行变形。这样的变形使得观众可以在二维图形中体验到三维的深度与动画效果。
 
 开源项目：
 
@@ -32,6 +33,7 @@ tags: [📆目标, 🐈逍遥猫]
 8. [DH_live]：每个人都能用的数字人。
 9. [anime.gf]：本地优先开源 LLM 前端。用户友好、支持多 API、可配置的 LLM 生成设置、可自定义主题。桌面上的开源老婆。
 10. [VPet]：虚拟桌宠模拟器，一个开源的桌宠软件，可以内置到任何WPF应用程序。
+11. [Live2DWidget]：把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ，用于 Web 平台的 Live2D 小部件。
 
 闭源项目：
 
@@ -52,6 +54,7 @@ tags: [📆目标, 🐈逍遥猫]
 [VRoid]: https://vroid.com/en
 [VTube Studio]: https://denchisoft.com/
 [EasyVtuber]: https://github.com/yuyuyzl/EasyVtuber
+[Inochi2D]: https://github.com/Inochi2D/inochi2d
 
 [LunaAI]: https://ikaros521.eu.org/site/
 [Lobe Vidol]: https://github.com/lobehub/lobe-vidol
@@ -63,6 +66,7 @@ tags: [📆目标, 🐈逍遥猫]
 [DH_live]: https://github.com/kleinlee/DH_live
 [anime.gf]: https://www.anime.gf/
 [VPet]: https://github.com/LorisYounger/VPet
+[Live2DWidget]: https://github.com/stevenjoezhang/live2d-widget
 
 [Live2DViewerEX]: https://store.steampowered.com/app/616720/Live2DViewerEX/
 [AiVpet]: https://www.vpetai.com/
