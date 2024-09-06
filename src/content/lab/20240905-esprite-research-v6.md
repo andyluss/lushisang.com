@@ -12,7 +12,7 @@ tags: [📆目标, 🐈逍遥猫]
 
 [aBowman]做的这样的小众产品也许是我重点学习的。还有类似[胡桃日记]这样的虚拟伴侣养成游戏，也是重点参考的。另外，还可以多研究下虚拟主播以及虚拟教师这方面的产业链，这样做的电子精灵，还可以给人用。
 
-Neuro-sama 这样的搞怪 AI 虚拟主播也可以多研究研究。找了一些受其启发的开源项目供研究：
+[Neuro-sama]这样的搞怪 AI 虚拟主播也可以多研究研究。找了一些受其启发的开源项目供研究：
 
 1. [Neuro]：重造 Neuro-sama，但是运行在本地模型上，用消费级硬件。
 2. [AI VTuber]：使用 OpenAI 模型和 Live2D 角色开发的类似 Neuro-sama 的人工智能。
@@ -58,6 +58,7 @@ Neuro-sama 这样的搞怪 AI 虚拟主播也可以多研究研究。找了一�
 [aBowman]: https://www.abowman.com/
 [胡桃日记]: https://hutaodiary.com/
 
+[Neuro-sama]: https://space.bilibili.com/3546729368520811
 [Neuro]: https://github.com/kimjammer/Neuro
 [AI VTuber]: https://github.com/ponlponl123/-Prototype-AIVTuber
 [AI Waifu]: https://github.com/HRNPH/AIwaifu
