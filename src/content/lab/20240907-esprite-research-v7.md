@@ -52,7 +52,14 @@ tags: [📆目标, 🐈逍遥猫]
 
 电子精灵总体上的技术架构还是可以参考 LunaAI 的这张示意图：![LunaAI](/images/luna-ai.png)
 
-当前的任务是，先开发一个类似 Neuro-sama 形象的猫娘 Live2D，然后结合生活教育需求，开发一个软件应用。所以接下来重点做开发，回到“逍遥猫”项目的开发。
+当下的任务是：
+
+1. 先开发一个类似 Neuro-sama 形象的猫娘 Live2D，
+2. 然后结合计算机、数学、物理等的理科教育，
+3. 以及生活相关的教育，
+4. 开发一个软件应用。
+
+所以接下来重点做应用开发，回到“逍遥猫”项目的开发。
 
 [这个视频]: https://www.bilibili.com/video/BV1pDsjegEtf/
 [aBowman]: https://www.abowman.com/
