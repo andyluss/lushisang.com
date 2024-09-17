@@ -26,4 +26,9 @@ const lab = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-export const collections = { blog, xyy, lab };
+
+const eco = defineCollection({
+  type: "content",
+  schema: commonSchema,
+});
+export const collections = { blog, xyy, lab, eco };
