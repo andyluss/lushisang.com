@@ -2,4 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = "❄️逍遥猫🐈";
-export const SITE_DESCRIPTION = "🏝️实践新自然心灵家园，以人为本的生活心灵家园";
+export const SITE_DESCRIPTION = "🏝️🏡实践以人为本的新自然生活心灵家园";

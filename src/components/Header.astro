@@ -7,11 +7,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <nav>
     <div class="title">
       <a href="/">{SITE_TITLE}</a>
-      <a href="/" class="text-sm w-40">{SITE_DESCRIPTION}</a>
+      <a href="/" class="text-xs w-28">{SITE_DESCRIPTION}</a>
     </div>
     <div class="tabs">
       <HeaderLink href="/lab">⚗️研究室</HeaderLink>
-      <HeaderLink href="/eco">🌐IT生态</HeaderLink>
       <HeaderLink href="/xyy">🧚逍遥游</HeaderLink>
     </div>
     <div class="social-links">
@@ -68,6 +67,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   }
   nav a {
     color: var(--black);
+  }
+  nav .tabs {
+    width: 50%;
+    text-align: center;
   }
   nav .tabs a {
     border-bottom: 2px solid transparent;
