@@ -12,11 +12,6 @@ const commonSchema = z.object({
   heroImage: z.string().optional(),
 });
 
-const blog = defineCollection({
-  type: "content",
-  schema: commonSchema,
-});
-
 const xyy = defineCollection({
   type: "content",
   schema: commonSchema,
@@ -26,9 +21,4 @@ const lab = defineCollection({
   type: "content",
   schema: commonSchema,
 });
-
-const mm = defineCollection({
-  type: "content",
-  schema: commonSchema,
-});
-export const collections = { blog, xyy, lab, mm };
+export const collections = { xyy, lab };
