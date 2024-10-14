@@ -4,8 +4,8 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro check && astro dev",
+    "start": "astro check && astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
