@@ -35,16 +35,15 @@ function border(post: Post) {
 }
 
 function star(post: Post) {
-  return (
-    "w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center " +
-    (post.data.level >= 3
+  const bgColor =
+    post.data.level >= 3
       ? "bg-fuchsia-500"
       : post.data.level === 2
         ? "bg-orange-500"
         : post.data.level === 1
           ? "bg-blue-500"
-          : "bg-blue-100")
-  );
+          : "bg-blue-100";
+  return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
 }
 ---
 

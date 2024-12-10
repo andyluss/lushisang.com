@@ -1,10 +1,10 @@
 import {
   type CollectionEntry,
-  type ContentEntryMap,
+  type DataEntryMap,
   getCollection,
 } from "astro:content";
 
-export type Collection = keyof ContentEntryMap;
+export type Collection = keyof DataEntryMap;
 export type Post = CollectionEntry<Collection>;
 export type Tag = string;
 export type TagItem = [Tag, number];
@@ -17,7 +17,7 @@ export async function getPosts(collection: Collection) {
   );
 }
 
-export function getTags(posts: Post[], all: boolean = false) {
+export function getTags(posts: Post[], all = false) {
   const res = [
     ...posts.reduce(
       (map, post) =>
@@ -34,7 +34,7 @@ export function getTags(posts: Post[], all: boolean = false) {
   return res;
 }
 
-export function getLevels(posts: Post[], all: boolean = false) {
+export function getLevels(posts: Post[], all = false) {
   const res = [
     ...posts.reduce(
       (map, post) =>
