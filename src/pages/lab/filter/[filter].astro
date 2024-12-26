@@ -4,11 +4,9 @@ import IndexLayout from "../../../layouts/IndexLayout.astro";
 
 export async function getStaticPaths() {
   const { tags, levels } = await getAll("lab");
-  return levels
-    .map((level) =>
-      tags.map((tag) => ({ params: { filter: `${level[0]}-${tag[0]}` } })),
-    )
-    .flat();
+  return levels.flatMap((level) =>
+    tags.map((tag) => ({ params: { filter: `${level[0]}-${tag[0]}` } })),
+  );
 }
 
 const { filter } = Astro.params;
