@@ -1,0 +1,16 @@
+---
+import Dashboard from "../card-layouts/dashboard.vue";
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Demo" description="Demo page" />
+  </head>
+  <body>
+    <main class="flex justify-center">
+      <Dashboard client:load/>
+    </main>
+  </body>
+</html>
