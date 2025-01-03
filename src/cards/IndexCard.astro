@@ -61,18 +61,16 @@ function star(post: Post) {
     </p>
   </a>
 
-  <div class="m-0 text-xs text-blue-500 absolute bottom-0">
+  <div class="text-[9px] text-blue-500 absolute bottom-0 mr-4">
     {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
   </div>
-  <div class="absolute right-[1px] top-0 flex flex-col items-end space-x-1">
-    <div class="text-gray-400 text-xs">
-      {index}
-    </div>
+  <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
     {
       !!post.data.level && (
         <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
       )
     }
+    <div class="text-gray-400 text-xs">{index}</div>
   </div>
 </li>
 
@@ -95,7 +93,6 @@ function star(post: Post) {
     color: rgb(var(--accent));
   }
   .title {
-    width: 85%;
     margin: 0;
     color: rgb(var(--black));
     line-height: 1.2;
