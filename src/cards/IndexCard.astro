@@ -1,0 +1,109 @@
+---
+import FormattedDate from "../components/FormattedDate.astro";
+import { type Collection, type Post } from "../utils/content";
+
+interface Props {
+	collection: Collection;
+	post: Post;
+	index: number;
+}
+
+const { collection, post, index } = Astro.props;
+
+function border(post: Post) {
+	return [
+		post.data.level >= 2 ? "border-2 border-double" : "border border-solid",
+		post.data.level >= 3
+			? "border-fuchsia-500"
+			: post.data.level === 2
+				? "border-orange-500"
+				: post.data.level === 1
+					? "border-blue-500"
+					: "border-blue-100",
+	];
+}
+
+function star(post: Post) {
+	const bgColor =
+		post.data.level >= 3
+			? "bg-fuchsia-500"
+			: post.data.level === 2
+				? "bg-orange-500"
+				: post.data.level === 1
+					? "bg-blue-500"
+					: "bg-blue-100";
+	return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
+}
+---
+
+<li class:list={["post relative", ...border(post)]}>
+  <a href={`/${collection}/${post.slug}`}>
+    <h5
+      class:list={[
+        "title",
+        post.data.level >= 3 && "!text-fuchsia-500",
+      ]}
+    >
+      {post.data.title}
+    </h5>
+    <p class="date">
+      <FormattedDate date={post.data.pubDate} />
+      {post.data.updatedDate && (
+        <>
+          ↻<FormattedDate date={post.data.updatedDate} />
+        </>
+      )}
+    </p>
+  </a>
+
+  <div class="m-0 text-xs text-blue-500 absolute bottom-0">
+    {post.data.tags.length > 0 && (
+      <span>{post.data.tags.join(" ")}</span>
+    )}
+  </div>
+  <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
+    {/* prettier-ignore */}
+    {!!post.data.level && (
+      <div class={star(post)}>
+        {"⭐️".repeat(post.data.level)}
+      </div>
+    )}
+    <div class="text-gray-400 text-xs">
+      {index}
+    </div>
+  </div>
+</li>
+
+
+<style>
+  .post {
+    width: 180px;
+    height: 80px;
+    padding: 4px;
+    margin: 1px;
+    box-sizing: border-box;
+  }
+  .post * {
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+  .post a {
+    display: block;
+  }
+  .post a:hover .title {
+    color: rgb(var(--accent));
+  }
+  .title {
+    margin: 0;
+    color: rgb(var(--black));
+    line-height: 1;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
+  }
+  .date {
+    margin: 0;
+    color: rgb(var(--gray));
+    font-size: 10px;
+  }
+</style>

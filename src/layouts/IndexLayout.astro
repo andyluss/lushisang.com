@@ -1,50 +1,24 @@
 ---
+import IndexCard from "../cards/IndexCard.astro";
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import {
-  type Collection,
-  type Tag,
-  type Level,
-  getAll,
-  type Post,
+	type Collection,
+	type Level,
+	type Tag,
+	getAll,
 } from "../utils/content";
 
 interface Props {
-  collection: Collection;
-  tag?: Tag;
-  level?: Level;
+	collection: Collection;
+	tag?: Tag;
+	level?: Level;
 }
 
 const { collection, tag = "all", level = "all" } = Astro.props;
 const { posts, tags, levels } = await getAll(collection, tag, level);
-
-function border(post: Post) {
-  return [
-    post.data.level >= 2 ? "border-2 border-double" : "border border-solid",
-    post.data.level >= 3
-      ? "border-fuchsia-500"
-      : post.data.level === 2
-        ? "border-orange-500"
-        : post.data.level === 1
-          ? "border-blue-500"
-          : "border-blue-100",
-  ];
-}
-
-function star(post: Post) {
-  const bgColor =
-    post.data.level >= 3
-      ? "bg-fuchsia-500"
-      : post.data.level === 2
-        ? "bg-orange-500"
-        : post.data.level === 1
-          ? "bg-blue-500"
-          : "bg-blue-100";
-  return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
-}
 ---
 
 <!doctype html>
@@ -102,45 +76,13 @@ function star(post: Post) {
       <section class="posts">
         <ul>
           {
-            posts.reverse().map((post, index) => (
-              <li class:list={["relative", ...border(post)]}>
-                <a href={`/${collection}/${post.slug}`}>
-                  <h5
-                    class:list={[
-                      "title",
-                      post.data.level >= 3 && "!text-fuchsia-500",
-                    ]}
-                  >
-                    {post.data.title}
-                  </h5>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                    {post.data.updatedDate && (
-                      <>
-                        ↻<FormattedDate date={post.data.updatedDate} />
-                      </>
-                    )}
-                  </p>
-                </a>
-
-                <div class="m-0 text-xs text-blue-500 absolute bottom-0">
-                  {post.data.tags.length > 0 && (
-                    <span>{post.data.tags.join(" ")}</span>
-                  )}
-                </div>
-                <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
-                  {/* prettier-ignore */}
-                  {!!post.data.level && (
-                    <div class={star(post)}>
-                      {"⭐️".repeat(post.data.level)}
-                    </div>
-                  )}
-                  <div class="text-gray-400 text-xs">
-                    {posts.length - index}
-                  </div>
-                </div>
-              </li>
-            ))
+            posts.reverse().map((post, index) =>
+              <IndexCard
+                collection={collection}
+                post={post}
+                index={posts.length - index}
+              />
+            )
           }
         </ul>
       </section>
@@ -157,43 +99,6 @@ function star(post: Post) {
         list-style-type: none;
         margin: 0;
         padding: 0;
-      }
-      .posts ul li {
-        width: 180px;
-        height: 80px;
-        padding: 4px;
-        margin: 1px;
-        box-sizing: border-box;
-      }
-      .posts ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      .posts ul li img {
-        margin-bottom: 0.5rem;
-        border-radius: 12px;
-      }
-      .posts ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-        line-height: 1;
-        font-size: large;
-        display: flex;
-        justify-content: space-between;
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-        font-size: 10px;
-      }
-      .posts ul li a:hover .title {
-        color: rgb(var(--accent));
-      }
-      .posts ul a:hover img {
-        box-shadow: var(--box-shadow);
       }
     </style>
   </body>

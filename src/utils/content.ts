@@ -1,10 +1,10 @@
 import {
+  type AnyEntryMap,
   type CollectionEntry,
-  type DataEntryMap,
   getCollection,
 } from "astro:content";
 
-export type Collection = keyof DataEntryMap;
+export type Collection = keyof AnyEntryMap;
 export type Post = CollectionEntry<Collection>;
 export type Tag = string;
 export type TagItem = [Tag, number];
