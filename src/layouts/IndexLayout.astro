@@ -1,5 +1,7 @@
 ---
 import IndexCard from "../cards/IndexCard.astro";
+import LevelCard from "../cards/LevelCard.astro";
+import TagCard from "../cards/TagCard.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -28,61 +30,28 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
   </head>
   <body>
     <Header />
-    <main>
-      <section>
-        <ul class="list-none p-0 m-0 flex flex-wrap">
-          {
-            levels.map(([lvl, count]) => (
-              <li
-                class={
-                  "mr-1 mb-1 px-1 rounded text-sm " +
-                  `${level === lvl ? "bg-orange-300" : "bg-gray-200"}`
-                }
-              >
-                <a
-                  href={`/${collection}/filter/${lvl}-${tag ?? "all"}`}
-                  class="text-orange-600 hover:text-orange-500"
-                >
-                  {lvl === "all" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-      <section>
-        <ul class="list-none p-0 m-0 flex flex-wrap">
-          {
-            tags
-              .sort((a, b) => b[1] - a[1])
-              .map(([tg, count]) => (
-                <li
-                  class={
-                    "mr-1 mb-1 px-1 rounded text-sm " +
-                    `${tag === tg ? "bg-blue-300" : "bg-gray-200"}`
-                  }
-                >
-                  <a
-                    href={`/${collection}/filter/${level ?? "all"}-${tg}`}
-                    class="text-blue-600 hover:text-blue-500"
-                  >
-                    {tg === "all" ? "全部" : tg}({count})
-                  </a>
-                </li>
-              ))
-          }
-        </ul>
+    <main class="flex flex-col">
+      <section class="flex">
+        <LevelCard
+          level={level}
+          levels={levels}
+          collection={collection}
+          tag={tag}
+        />
+        <TagCard tag={tag} tags={tags} collection={collection} level={level} />
       </section>
       <section class="posts">
         <ul>
           {
-            posts.reverse().map((post, index) =>
-              <IndexCard
-                collection={collection}
-                post={post}
-                index={posts.length - index}
-              />
-            )
+            posts
+              .reverse()
+              .map((post, index) => (
+                <IndexCard
+                  collection={collection}
+                  post={post}
+                  index={posts.length - index}
+                />
+              ))
           }
         </ul>
       </section>

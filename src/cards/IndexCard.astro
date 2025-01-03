@@ -6,9 +6,17 @@ interface Props {
 	collection: Collection;
 	post: Post;
 	index: number;
+	width?: string;
+	height?: string;
 }
 
-const { collection, post, index } = Astro.props;
+const {
+	collection,
+	post,
+	index,
+	width = "128px",
+	height = "128px",
+} = Astro.props;
 
 function border(post: Post) {
 	return [
@@ -38,49 +46,42 @@ function star(post: Post) {
 
 <li class:list={["post relative", ...border(post)]}>
   <a href={`/${collection}/${post.slug}`}>
-    <h5
-      class:list={[
-        "title",
-        post.data.level >= 3 && "!text-fuchsia-500",
-      ]}
-    >
+    <div class:list={["title", post.data.level >= 3 && "!text-fuchsia-500"]}>
       {post.data.title}
-    </h5>
+    </div>
     <p class="date">
       <FormattedDate date={post.data.pubDate} />
-      {post.data.updatedDate && (
-        <>
-          ↻<FormattedDate date={post.data.updatedDate} />
-        </>
-      )}
+      {
+        post.data.updatedDate && (
+          <>
+            ↻<FormattedDate date={post.data.updatedDate} />
+          </>
+        )
+      }
     </p>
   </a>
 
   <div class="m-0 text-xs text-blue-500 absolute bottom-0">
-    {post.data.tags.length > 0 && (
-      <span>{post.data.tags.join(" ")}</span>
-    )}
+    {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
   </div>
-  <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
-    {/* prettier-ignore */}
-    {!!post.data.level && (
-      <div class={star(post)}>
-        {"⭐️".repeat(post.data.level)}
-      </div>
-    )}
+  <div class="absolute right-[1px] top-0 flex flex-col items-end space-x-1">
     <div class="text-gray-400 text-xs">
       {index}
     </div>
+    {
+      !!post.data.level && (
+        <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
+      )
+    }
   </div>
 </li>
 
-
-<style>
+<style define:vars={{ width, height }}>
   .post {
-    width: 180px;
-    height: 80px;
+    width: var(--width);
+    height: var(--height);
     padding: 4px;
-    margin: 1px;
+    /* margin: 1px; */
     box-sizing: border-box;
   }
   .post * {
@@ -94,10 +95,11 @@ function star(post: Post) {
     color: rgb(var(--accent));
   }
   .title {
+    width: 85%;
     margin: 0;
     color: rgb(var(--black));
-    line-height: 1;
-    font-size: large;
+    line-height: 1.2;
+    font-size: medium;
     display: flex;
     justify-content: space-between;
   }

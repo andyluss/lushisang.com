@@ -1,0 +1,48 @@
+---
+import type { Collection, Level, LevelItem, Tag } from "../utils/content";
+
+interface Props {
+	level: Level;
+	levels: LevelItem[];
+	collection: Collection;
+	tag?: Tag;
+	width?: string;
+	height?: string;
+}
+
+const {
+	level,
+	levels,
+	collection,
+	tag,
+	width = "256px",
+	height = "64px",
+} = Astro.props;
+---
+
+<ul class="card list-none p-0 m-0 flex flex-wrap">
+  {
+    levels.map(([lvl, count]) => (
+      <li
+        class={
+          "flex items-center mr-1 mb-1 px-1 rounded text-sm " +
+          `${level === lvl ? "bg-orange-300" : "bg-gray-200"}`
+        }
+      >
+        <a
+          href={`/${collection}/filter/${lvl}-${tag ?? "all"}`}
+          class="text-orange-600 hover:text-orange-500"
+        >
+          {lvl === "all" ? "全部" : "⭐️".repeat(lvl) || "无"}({count})
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style define:vars={{ width, height }}>
+  .card {
+    width: var(--width);
+    height: var(--height);
+  }
+</style>
