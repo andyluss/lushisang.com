@@ -2,21 +2,21 @@
 import type { Collection, Level, LevelItem, Tag } from "../utils/content";
 
 interface Props {
-	level: Level;
-	levels: LevelItem[];
-	collection: Collection;
-	tag?: Tag;
-	width?: string;
-	height?: string;
+  level: Level;
+  levels: LevelItem[];
+  collection: Collection;
+  tag?: Tag;
+  width?: string;
+  height?: string;
 }
 
 const {
-	level,
-	levels,
-	collection,
-	tag,
-	width = "256px",
-	height = "64px",
+  level,
+  levels,
+  collection,
+  tag,
+  width = "256px",
+  height = "128px",
 } = Astro.props;
 ---
 
