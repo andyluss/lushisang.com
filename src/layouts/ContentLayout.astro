@@ -1,29 +1,29 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
-  slug: string;
-  collection: string;
-  data: CollectionEntry<"xyy">["data"];
+	slug: string;
+	collection: string;
+	data: CollectionEntry<"xyy">["data"];
 }
 
 const {
-  slug,
-  collection,
-  data: {
-    title,
-    subTitle,
-    tags,
-    level,
-    description,
-    pubDate,
-    updatedDate,
-    heroImage,
-  },
+	slug,
+	collection,
+	data: {
+		title,
+		subTitle,
+		tags,
+		level,
+		description,
+		pubDate,
+		updatedDate,
+		heroImage,
+	},
 } = Astro.props;
 ---
 
@@ -96,14 +96,14 @@ const {
             <hr />
           </div>
           <slot />
-          <a
-            href={`https://github.com/andyluss/lushisang.com/edit/main/src/content/${collection}/${slug}.md`}
-            class="text-sm underline"
-          >
-            编辑>>
-          </a>
         </div>
       </article>
+      <a
+        href={`https://github.com/andyluss/lushisang.com/edit/main/src/content/${collection}/${slug}.md`}
+        class="text-sm underline"
+      >
+        编辑>>
+      </a>
     </main>
     <Footer />
   </body>
