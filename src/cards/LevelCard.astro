@@ -2,25 +2,25 @@
 import type { Collection, Level, LevelItem, Tag } from "../utils/content";
 
 interface Props {
-  level: Level;
-  levels: LevelItem[];
-  collection: Collection;
-  tag?: Tag;
-  width?: string;
-  height?: string;
+	level: Level;
+	levels: LevelItem[];
+	collection: Collection;
+	tag?: Tag;
+	width?: string;
+	height?: string;
 }
 
 const {
-  level,
-  levels,
-  collection,
-  tag,
-  width = "256px",
-  height = "128px",
+	level,
+	levels,
+	collection,
+	tag,
+	width = "256px",
+	height = "128px",
 } = Astro.props;
 ---
 
-<ul class="card list-none p-0 m-0 flex flex-wrap">
+<ul class="list-none p-0 m-0 flex flex-wrap" style={{width, height}}>
   {
     levels.map(([lvl, count]) => (
       <li
@@ -39,10 +39,3 @@ const {
     ))
   }
 </ul>
-
-<style define:vars={{ width, height }}>
-  .card {
-    width: var(--width);
-    height: var(--height);
-  }
-</style>

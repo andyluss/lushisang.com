@@ -2,25 +2,25 @@
 import type { Collection, Level, Tag, TagItem } from "../utils/content";
 
 interface Props {
-  tag: Tag;
-  tags: TagItem[];
-  collection: Collection;
-  level?: Level;
-  width?: string;
-  height?: string;
+	tag: Tag;
+	tags: TagItem[];
+	collection: Collection;
+	level?: Level;
+	width?: string;
+	height?: string;
 }
 
 const {
-  tag,
-  tags,
-  collection,
-  level,
-  width = "512px",
-  height = "128px",
+	tag,
+	tags,
+	collection,
+	level,
+	width = "512px",
+	height = "128px",
 } = Astro.props;
 ---
 
-<ul class="card list-none p-0 m-0 flex flex-wrap">
+<ul class="card list-none p-0 m-0 flex flex-wrap" style={{width, height}}>
   {
     tags
       .sort((a, b) => b[1] - a[1])
@@ -41,10 +41,3 @@ const {
       ))
   }
 </ul>
-
-<style define:vars={{ width, height }}>
-  .card {
-    width: var(--width);
-    height: var(--height);
-  }
-</style>
