@@ -1,5 +1,5 @@
 ---
-import Card from "../cards/HomeCard.astro";
+import BaseCard from "../cards/Base.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -14,7 +14,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <body>
     <Header />
     <main class="flex justify-center">
-      <Card width="400px" height="400px">
+      <BaseCard width="400px" height="400px">
         <div class="flex h-full items-center justify-center">
           <ol class="p-0 m-0 list-none text-4xl leading-relaxed text-center">
             <li class="text-3xl">一个</li>
@@ -23,7 +23,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             <li>🧚逍遥游船长🌌</li>
           </ol>
         </div>
-      </Card>
+      </BaseCard>
     </main>
     <Footer />
   </body>

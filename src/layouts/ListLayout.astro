@@ -1,22 +1,22 @@
 ---
-import IndexCard from "../cards/IndexCard.astro";
-import LevelCard from "../cards/LevelCard.astro";
-import TagCard from "../cards/TagCard.astro";
+import ListItem from "../cards/ListItem.astro";
+import Levels from "../cards/Levels.astro";
+import Tags from "../cards/Tags.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import {
-	type Collection,
-	type Level,
-	type Tag,
-	getAll,
+  type Collection,
+  type Level,
+  type Tag,
+  getAll,
 } from "../utils/content";
 
 interface Props {
-	collection: Collection;
-	tag?: Tag;
-	level?: Level;
+  collection: Collection;
+  tag?: Tag;
+  level?: Level;
 }
 
 const { collection, tag = "all", level = "all" } = Astro.props;
@@ -32,13 +32,13 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
     <Header />
     <main class="flex flex-col">
       <section class="flex">
-        <LevelCard
+        <Levels
           level={level}
           levels={levels}
           collection={collection}
           tag={tag}
         />
-        <TagCard tag={tag} tags={tags} collection={collection} level={level} />
+        <Tags tag={tag} tags={tags} collection={collection} level={level} />
       </section>
       <section class="posts">
         <ul>
@@ -46,7 +46,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
             posts
               .reverse()
               .map((post, index) => (
-                <IndexCard
+                <ListItem
                   collection={collection}
                   post={post}
                   index={posts.length - index}
