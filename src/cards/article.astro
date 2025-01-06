@@ -44,7 +44,9 @@ const {
       </div>
       <hr />
     </div>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
   </div>
 </article>
 
@@ -60,9 +62,8 @@ const {
     box-shadow: var(--box-shadow);
   }
   .prose {
-    width: 720px;
-    max-width: 100%;
-    margin: auto;
+    width: 100%;
+    height: 100%;
     color: rgb(var(--gray-dark));
   }
   .title {
