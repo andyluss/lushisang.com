@@ -14,19 +14,17 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.3",
-    "@astrojs/rss": "^4.0.10",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
-    "@astrojs/vue": "^5.0.3",
-    "astro": "^5.1.1",
+    "@astrojs/vue": "^5.0.4",
+    "astro": "^5.1.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "vue": "^3.5.13",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.2",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "@biomejs/biome": "^1.9.4"
   }
 }

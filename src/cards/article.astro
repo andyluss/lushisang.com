@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+interface Props {
+	data: CollectionEntry<"xyy">["data"];
+	width?: string;
+	height?: string;
+}
+
+const {
+	data: { title, subTitle, tags, level, pubDate, updatedDate, heroImage },
+	width = "512px",
+	height = "512px",
+} = Astro.props;
+---
+
+<article style={{ width, height, overflow: "scroll" }}>
+  <div class="hero-image">
+    {
+      heroImage && (
+        <img width={1020} height={510} src={heroImage} alt="" />
+      )
+    }
+  </div>
+  <div class="prose">
+    <div class="title">
+      <h2>{title}</h2>
+      <h4>{subTitle}</h4>
+      <div class="date">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <>
+              <span>↻更新于</span>
+              <FormattedDate date={updatedDate} />
+            </>
+          )
+        }
+      </div>
+      <div class="mb-1">
+        {"⭐️".repeat(level)}
+        {tags.length > 0 && "🏷 " + tags.join(", ")}
+      </div>
+      <hr />
+    </div>
+    <slot />
+  </div>
+</article>
+
+
+<style>
+  .hero-image {
+    width: 100%;
+  }
+  .hero-image img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+  }
+  .prose {
+    width: 720px;
+    max-width: 100%;
+    margin: auto;
+    color: rgb(var(--gray-dark));
+  }
+  .title {
+    padding-bottom: 1em;
+    text-align: center;
+    line-height: 1;
+  }
+  .date {
+    margin-bottom: 0.5em;
+    color: rgb(var(--gray));
+  }
+</style>
