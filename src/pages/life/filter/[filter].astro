@@ -1,0 +1,17 @@
+---
+import { getAll } from "@/utils/content";
+import List from "@/layouts/list.astro";
+
+export async function getStaticPaths() {
+  const { tags, levels } = await getAll("life");
+  return levels.flatMap((level) =>
+    tags.map((tag) => ({ params: { filter: `${level[0]}-${tag[0]}` } })),
+  );
+}
+
+const { filter } = Astro.params;
+const [levelStr, tag] = filter.split("-");
+const level = levelStr === "all" ? "all" : Number(levelStr);
+---
+
+<List collection="life" {tag} {level} />
