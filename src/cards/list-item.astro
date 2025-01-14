@@ -3,44 +3,44 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { type Collection, type Post } from "../utils/content";
 
 interface Props {
-	collection: Collection;
-	post: Post;
-	index: number;
-	width?: string;
-	height?: string;
+  collection: Collection;
+  post: Post;
+  index: number;
+  width?: string;
+  height?: string;
 }
 
 const {
-	collection,
-	post,
-	index,
-	width = "128px",
-	height = "128px",
+  collection,
+  post,
+  index,
+  width = "128px",
+  height = "128px",
 } = Astro.props;
 
 function border(post: Post) {
-	return [
-		post.data.level >= 2 ? "border-2 border-double" : "border border-solid",
-		post.data.level >= 3
-			? "border-fuchsia-500"
-			: post.data.level === 2
-				? "border-orange-500"
-				: post.data.level === 1
-					? "border-green-500"
-					: "border-blue-200",
-	];
+  return [
+    post.data.level >= 2 ? "border-2 border-double" : "border border-solid",
+    post.data.level >= 3
+      ? "border-fuchsia-500"
+      : post.data.level === 2
+        ? "border-orange-500"
+        : post.data.level === 1
+          ? "border-green-500"
+          : "border-blue-200",
+  ];
 }
 
 function star(post: Post) {
-	const bgColor =
-		post.data.level >= 3
-			? "bg-fuchsia-500"
-			: post.data.level === 2
-				? "bg-orange-500"
-				: post.data.level === 1
-					? "bg-green-500"
-					: "bg-blue-200";
-	return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
+  const bgColor =
+    post.data.level >= 3
+      ? "bg-fuchsia-500"
+      : post.data.level === 2
+        ? "bg-orange-500"
+        : post.data.level === 1
+          ? "bg-green-500"
+          : "bg-blue-200";
+  return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
 }
 ---
 
@@ -54,6 +54,7 @@ function star(post: Post) {
       {
         post.data.updatedDate && (
           <>
+            <br />
             ↻<FormattedDate date={post.data.updatedDate} />
           </>
         )
