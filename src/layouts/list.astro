@@ -44,7 +44,8 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
         <ul>
           {
             posts
-              .reverse()
+              .toReversed()
+              .toSorted((a, b) => b.data.top - a.data.top)
               .map((post, index) => (
                 <ListItem
                   collection={collection}

@@ -18,6 +18,8 @@ const {
   height = "128px",
 } = Astro.props;
 
+const bg = post.data.top > 0 ? "yellow" : "none";
+
 function border(post: Post) {
   return [
     post.data.level >= 2 ? "border-2 border-double" : "border border-solid",
@@ -66,6 +68,7 @@ function star(post: Post) {
     {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
   </div>
   <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
+    {!!post.data.top && <span>📌</span>}
     {
       !!post.data.level && (
         <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
@@ -75,13 +78,14 @@ function star(post: Post) {
   </div>
 </li>
 
-<style define:vars={{ width, height }}>
+<style define:vars={{ width, height, bg }}>
   .post {
     width: var(--width);
     height: var(--height);
     padding: 4px;
     margin: 1px;
     box-sizing: border-box;
+    background: var(--bg);
   }
   .post * {
     text-decoration: none;
