@@ -84,7 +84,7 @@ a:hover {
   color: var(--accent);
 }
 .prose p {
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 textarea {
   width: 100%;
