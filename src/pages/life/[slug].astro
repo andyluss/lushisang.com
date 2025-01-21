@@ -1,6 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import ContentLayout from "@/layouts/content.astro";
+import { getCollection } from "astro:content";
+import ContentLayout from "@/layouts/content-layout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("life");
@@ -10,12 +10,16 @@ export async function getStaticPaths() {
   }));
 }
 
-type Props = CollectionEntry<"life">;
-
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<ContentLayout slug={post.slug} collection={post.collection} data={post.data}>
+<ContentLayout
+  slug={post.slug}
+  collection={post.collection}
+  data={post.data}
+  articleWidth="768px"
+  articleHeight="768px"
+>
   <Content />
 </ContentLayout>

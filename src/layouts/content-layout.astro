@@ -6,12 +6,14 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 
 interface Props {
-	slug: string;
-	collection: string;
-	data: CollectionEntry<"xyy">["data"];
+  slug: string;
+  collection: string;
+  data: CollectionEntry<"xyy">["data"];
+  articleWidth?: string;
+  articleHeight?: string;
 }
 
-const { slug, collection, data } = Astro.props;
+const { slug, collection, data, articleWidth, articleHeight } = Astro.props;
 ---
 
 <html lang="en">
@@ -22,14 +24,14 @@ const { slug, collection, data } = Astro.props;
   <body>
     <Header />
     <main class="w-fit">
-      <Article data={data}>
+      <Article data={data} width={articleWidth} height={articleHeight}>
         <slot />
       </Article>
       <a
         href={`https://github.com/andyluss/lushisang.com/edit/main/src/content/${collection}/${slug}.md`}
         class="text-sm underline"
       >
-        编辑>>
+        编辑
       </a>
     </main>
     <Footer />
