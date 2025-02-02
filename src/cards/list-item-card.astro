@@ -18,7 +18,7 @@ const {
   height = "128px",
 } = Astro.props;
 
-const bg = post.data.top > 0 ? "yellow" : "none";
+const bg = ['none', 'lightyellow', 'yellow', 'greenyellow'][post.data.top];
 
 function border(post: Post) {
   return [
