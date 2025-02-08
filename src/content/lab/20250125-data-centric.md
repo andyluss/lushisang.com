@@ -3,6 +3,7 @@ title: 以数据为中心
 pubDate: 2025-01-25
 tags: [💻IT]
 level: 3
+top: 1
 ---
 
 随着 LLM 的流行，数据越来越重要。而且根据一些[业界讨论]，也许数据或信息或内容才是用户真正关心的核心。
@@ -21,6 +22,7 @@ level: 3
 2. [Wikipedia: Data-driven programming](https://en.wikipedia.org/wiki/Data-driven_programming)
 3. [Wikipedia: Data-oriented design](https://en.wikipedia.org/wiki/Data-oriented_design)
 4. [DATA-ORIENTED DESIGN](https://www.dataorienteddesign.com/site.php)，[中译本](https://www.dataorienteddesign.com/cn-dodbook.pdf)
+5. [如何以DeepSeek为契机实现信息技术全面超美？ | 汪涛](https://zhuanlan.zhihu.com/p/21351764284)
 
 
 [业界讨论]: https://www.reddit.com/r/programming/comments/todni/no_db_uncle_bob/
