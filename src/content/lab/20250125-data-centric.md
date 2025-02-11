@@ -23,6 +23,7 @@ top: 1
 3. [Wikipedia: Data-oriented design](https://en.wikipedia.org/wiki/Data-oriented_design)
 4. [DATA-ORIENTED DESIGN](https://www.dataorienteddesign.com/site.php)，[中译本](https://www.dataorienteddesign.com/cn-dodbook.pdf)
 5. [如何以DeepSeek为契机实现信息技术全面超美？ | 汪涛](https://zhuanlan.zhihu.com/p/21351764284)
+6. [数据库即业务架构](https://pigsty.io/zh/blog/db/db-is-the-arch/)，[数据库即架构](https://mp.weixin.qq.com/s/8NS15_fkuR_gSLG50MNtMQ)
 
 
 [业界讨论]: https://www.reddit.com/r/programming/comments/todni/no_db_uncle_bob/
