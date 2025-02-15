@@ -6,7 +6,7 @@ level: 3
 top: 2
 ---
 
-这几天在继续思考[《以数据为中心》](/lab/20250125-data-centric)，也参考了别人反思 DDD 的文章[《拥抱毒瘤 DDD！》]。
+这几天在继续思考[《以数据为中心》](/lab/20250125-data-centric)，也参考了别人反思 DDD 的文章[《拥抱毒瘤 DDD！》](https://mp.weixin.qq.com/s/AhklSNwD1UzHv0hCGNMcVg)。
 
 发现一个业界尤其是业务开发可能比较严重的问题，就是喜欢从上到下，以抽象的需求话语驱动具体的技术开发，而不是从实际出发，从下到上。也就是想得太多，观察和实践太少，并喜欢用臆想指导实践。
 
@@ -40,5 +40,9 @@ top: 2
 
 我觉得更适合技术人员的脚踏实地的方案应该类似数据驱动开发这样的可以直接落地的方案，数据比领域要踏实多了。
 
+### 算法=逻辑+控制
 
-[《拥抱毒瘤 DDD！》]: https://mp.weixin.qq.com/s/AhklSNwD1UzHv0hCGNMcVg
+这两篇文章讲得挺好。和我的想法也有些匹配，业务就是逻辑，技术就是控制。让搞业务的和搞技术的职责清晰。
+
+1. [左耳朵耗子：编程的本质是什么？](https://mp.weixin.qq.com/s/3WKImtdg_rEd_R9eCjs6WA)
+2. [程序的本质复杂性和元语言抽象](https://www.cnblogs.com/weidagang2046/p/the-nature-of-meta.html)，[酷壳转载讨论](https://coolshell.cn/articles/10652.html)
