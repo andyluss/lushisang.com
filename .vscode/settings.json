@@ -4,5 +4,8 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
