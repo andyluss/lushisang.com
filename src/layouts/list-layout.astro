@@ -5,7 +5,7 @@ import Tags from "../cards/tags-card.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE, COLLECTION_MAP } from "../consts";
 import {
   type Collection,
   type Level,
@@ -26,7 +26,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={tag == 'all' ? COLLECTION_MAP[collection] ?? SITE_TITLE : tag } description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
