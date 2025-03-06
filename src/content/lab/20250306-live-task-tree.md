@@ -33,4 +33,6 @@ top: 1
 
 另外，还有扩展功能的想法，但是暂时存档不实现：
 
-> 清晰记ClearMark：记下来，聚焦，清除，然后安心睡觉（Mark it down, focus, clear it, and rest in peace）。可以记任务、风险、错误、笔记、备忘、会面、想法等（tasks, risks, mistakes, notes, memories, meetings, thoughts, etc.）。
+> 1. 清晰记ClearMark：记下来，聚焦，清除，然后安心睡觉（Mark it down, focus, clear it, and rest in peace）。
+> 2. 一个干净清晰的树形任务完成助手（A clean and clear tree-like mission complete mate）。
+> 3. 可以记任务、风险、错误、笔记、备忘、会面、想法等（tasks, risks, mistakes, notes, memories, meetings, thoughts, etc.）。
