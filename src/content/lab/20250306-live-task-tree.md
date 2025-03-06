@@ -28,3 +28,7 @@ top: 1
     3. [ ] 开发高级功能。
 4. [ ] 上线。
 5. [ ] 不断迭代。
+
+另外，还有扩展功能的想法，但是暂时存档不实现：
+
+> 清晰记ClearMark：记下来，聚焦，清除，然后安心睡觉（Mark it down, focus, clear it, and rest in peace）。可以记任务、风险、错误、笔记、备忘、会面、想法等（tasks, risks, mistakes, notes, memories, meetings, thoughts, etc.）。
