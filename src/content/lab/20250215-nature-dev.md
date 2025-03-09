@@ -2,8 +2,8 @@
 title: 新自然开发
 pubDate: 2025-02-15
 tags: [💻IT]
-level: 3
-top: 2
+level: 2
+top: 1
 ---
 
 这几天在继续思考[《以数据为中心》](/lab/20250125-data-centric)，也参考了别人反思 DDD 的文章[《拥抱毒瘤 DDD！》](https://mp.weixin.qq.com/s/AhklSNwD1UzHv0hCGNMcVg)。

@@ -2,7 +2,7 @@
 title: 以数据为中心
 pubDate: 2025-01-25
 tags: [💻IT]
-level: 3
+level: 2
 top: 1
 ---
 
