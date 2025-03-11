@@ -1,5 +1,5 @@
 ---
-title: 新自然开发
+title: 🏝️新自然开发
 pubDate: 2025-02-15
 tags: [💻IT]
 level: 2
@@ -43,6 +43,8 @@ top: 1
 所以我这是反DDD的。DDD适合分析整理需求，不适合指导开发。DDD讲究开发人员充分理解业务，把本该清晰分离的需求分析和程序开发的职责给耦合在一起了。
 
 我觉得更适合技术人员的脚踏实地的方案应该类似数据驱动开发这样的可以直接落地的方案，数据比领域要踏实多了。
+
+参考：[Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/)
 
 ### 三、算法=逻辑+控制
 
