@@ -46,8 +46,7 @@ function star(post: Post) {
 }
 ---
 
-<li class:list={["post relative", ...border(post)]}>
-  <a href={`/${collection}/${post.slug}`}>
+<a class:list={["post relative", ...border(post)]} href={`/${collection}/${post.slug}`}>
     <div class:list={["title", post.data.level >= 3 && "!text-fuchsia-500"]}>
       {post.data.title}
     </div>
@@ -62,21 +61,19 @@ function star(post: Post) {
         )
       }
     </p>
-  </a>
-
-  <div class="tags text-blue-500">
-    {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
-  </div>
-  <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
-    {!!post.data.top && <span>📌</span>}
-    {
-      !!post.data.level && (
-        <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
-      )
-    }
-    <div class="text-gray-400 text-xs">{index}</div>
-  </div>
-</li>
+    <div class="tags text-blue-500">
+        {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
+    </div>
+    <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
+        {!!post.data.top && <span>📌</span>}
+        {
+        !!post.data.level && (
+            <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
+        )
+        }
+        <div class="text-gray-400 text-xs">{index}</div>
+    </div>
+</a>
 
 <style define:vars={{ width, height, bg }}>
   .post {
