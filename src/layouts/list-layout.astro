@@ -31,16 +31,9 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
   <body>
     <Header />
     <main class="flex flex-col">
-      <section class="flex">
-        <Levels
-          level={level}
-          levels={levels}
-          collection={collection}
-          tag={tag}
-        />
-        <Tags tag={tag} tags={tags} collection={collection} level={level} />
-      </section>
-      <section class="posts">
+      <Levels level={level} levels={levels} collection={collection} tag={tag} />
+      <Tags tag={tag} tags={tags} collection={collection} level={level} />
+      <div class="posts">
         <ul>
           {
             posts
@@ -55,7 +48,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
               ))
           }
         </ul>
-      </section>
+      </div>
     </main>
     <Footer />
 

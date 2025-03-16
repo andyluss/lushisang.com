@@ -15,12 +15,10 @@ const {
 	tags,
 	collection,
 	level,
-	width = "512px",
-	height = "128px",
 } = Astro.props;
 ---
 
-<ul class="card list-none p-0 m-[1px] flex flex-wrap" style={{ width, height }}>
+<ul class="card list-none p-0 m-[1px] flex flex-wrap">
   {
     tags
       .sort((a, b) => b[1] - a[1])

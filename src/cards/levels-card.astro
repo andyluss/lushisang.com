@@ -15,12 +15,10 @@ const {
   levels,
   collection,
   tag,
-  width = "256px",
-  height = "128px",
 } = Astro.props;
 ---
 
-<ul class="list-none p-0 m-[1px] flex flex-wrap" style={{ width, height }}>
+<ul class="list-none p-0 m-[1px] flex flex-wrap">
   {
     levels.map(([lvl, count]) => (
       <li
