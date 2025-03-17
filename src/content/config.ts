@@ -1,4 +1,4 @@
-import { defineCollection, z, type BaseSchema } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 const commonSchema = z.object({
   title: z.string().max(20),
