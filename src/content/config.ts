@@ -11,23 +11,18 @@ const commonSchema = z.object({
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
   heroImage: z.string().optional(),
+  paradigm: z.string().optional(),
 });
 
-type CommonSchema = typeof commonSchema;
-
-const doSchema = commonSchema.extend({
-  paradigmId: z.number().optional(),
-});
-
-const dc = (schema?: CommonSchema) =>
+const dc = () =>
   defineCollection({
     type: "content",
-    schema: schema ?? commonSchema,
+    schema: commonSchema,
   });
 
 export const collections = {
   life: dc(),
   xyy: dc(),
   lab: dc(),
-  do: dc(doSchema),
+  do: dc(),
 };

@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import ContentLayout from "@/layouts/content-layout.astro";
+import MusicPlayer from 'astro-netease-player/MusicPlayer.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection("xyy");
@@ -17,5 +18,5 @@ const { Content } = await post.render();
 ---
 
 <ContentLayout slug={post.slug} collection={post.collection} data={post.data}>
-  <Content />
+  <Content components={{ MusicPlayer }} />
 </ContentLayout>
