@@ -13,11 +13,13 @@ const commonSchema = z.object({
   heroImage: z.string().optional(),
 });
 
+type CommonSchema = typeof commonSchema;
+
 const doSchema = commonSchema.extend({
   paradigmId: z.number().optional(),
 });
 
-const dc = (schema?: BaseSchema) =>
+const dc = (schema?: CommonSchema) =>
   defineCollection({
     type: "content",
     schema: schema ?? commonSchema,
