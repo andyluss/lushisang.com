@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z, type BaseSchema } from "astro:content";
 
 const commonSchema = z.object({
   title: z.string().max(20),
@@ -13,10 +13,19 @@ const commonSchema = z.object({
   heroImage: z.string().optional(),
 });
 
-const dc = () =>
+const doSchema = commonSchema.extend({
+  paradigmId: z.number().optional(),
+});
+
+const dc = (schema?: BaseSchema) =>
   defineCollection({
     type: "content",
-    schema: commonSchema,
+    schema: schema ?? commonSchema,
   });
 
-export const collections = { life: dc(), xyy: dc(), lab: dc(), do: dc() };
+export const collections = {
+  life: dc(),
+  xyy: dc(),
+  lab: dc(),
+  do: dc(doSchema),
+};

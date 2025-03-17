@@ -10,8 +10,6 @@ interface Props {
 
 const {
   data: { title, subTitle, tags, level, pubDate, updatedDate, heroImage },
-  width = "1024px",
-  height = "1024px",
 } = Astro.props;
 ---
 
@@ -46,10 +44,8 @@ const {
   </div>
 </article>
 
-<style define:vars={{ width, height }}>
+<style>
   article {
-      width: var(--width);
-      height: var(--height);
       overflow: auto;
       border: 1px solid rgb(var(--gray-light));
   }
