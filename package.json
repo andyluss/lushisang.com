@@ -9,6 +9,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "sync": "astro sync",
     "up": "npx taze major -I"
   },
   "dependencies": {

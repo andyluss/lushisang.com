@@ -7,4 +7,5 @@ export const COLLECTION_MAP = {
   xyy: "🧚逍遥游",
   lab: "🦄小公社",
   life: "🌳人生树",
+  do: "🛵干饭人",
 };
