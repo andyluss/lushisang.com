@@ -9,11 +9,9 @@ interface Props {
   slug: string;
   collection: string;
   data: CollectionEntry<"xyy">["data"];
-  articleWidth?: string;
-  articleHeight?: string;
 }
 
-const { slug, collection, data, articleWidth, articleHeight } = Astro.props;
+const { slug, collection, data } = Astro.props;
 ---
 
 <html lang="en">
@@ -23,8 +21,8 @@ const { slug, collection, data, articleWidth, articleHeight } = Astro.props;
 
   <body>
     <Header />
-    <main class="w-fit">
-      <Article data={data} width={articleWidth} height={articleHeight}>
+    <main>
+      <Article data={data}>
         <slot />
       </Article>
       <a
