@@ -3,8 +3,8 @@ title: 🐈逍遥猫LiveCat开发日志
 pubDate: 2024-12-01
 updatedDate: 2025-03-13
 tags: [🐈逍遥猫]
-level: 3
-top: 2
+level: 2
+top: 1
 ---
 
 # 逍遥猫LiveCat开发日志

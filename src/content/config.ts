@@ -10,6 +10,7 @@ const commonSchema = z.object({
   // Transform string to Date object
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
+  originDate: z.coerce.date().optional(),
   heroImage: z.string().optional(),
   paradigm: z.string().optional(),
 });

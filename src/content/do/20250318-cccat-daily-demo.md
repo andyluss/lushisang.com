@@ -1,5 +1,5 @@
 ---
-title: CCCat每日
+title: CCCat每日记录Demo
 pubDate: 2025-03-18
 ---
 
