@@ -58,7 +58,8 @@ const { title, description, image = "/base-image.png" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<script>
+<!-- OpenPanel -->
+<script is:inline>
   window.op = window.op||function(...args){(window.op.q=window.op.q||[]).push(args);};
   window.op('init', {
     clientId: 'c02507eb-c8fd-44b4-9b64-d1cdae7da9e7',
@@ -67,4 +68,4 @@ const { title, description, image = "/base-image.png" } = Astro.props;
     trackAttributes: true,
   });
 </script>
-<script src="https://openpanel.dev/op1.js" defer async></script>
+<script is:inline src="https://openpanel.dev/op1.js" defer async></script>
