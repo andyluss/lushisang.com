@@ -1,10 +1,9 @@
 ---
-title: 适用软件
+title: 🩵适用软件
 pubDate: 2024-06-23
 updatedDate: 2025-03-14
 tags: [💻IT]
 level: 2
-top: 1
 ---
 
 我有个自创的软件架构概念，叫适用软件，英语叫Fit Software。就是根据不同的需求，精心打造最适用的软件。
