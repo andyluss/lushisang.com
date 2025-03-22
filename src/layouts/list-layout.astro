@@ -27,6 +27,16 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
 <html lang="en">
   <head>
     <BaseHead title={tag == 'all' ? COLLECTION_MAP[collection] ?? SITE_TITLE : tag } description={SITE_DESCRIPTION} />
+    <script>
+      window.op = window.op||function(...args){(window.op.q=window.op.q||[]).push(args);};
+      window.op('init', {
+        clientId: 'c02507eb-c8fd-44b4-9b64-d1cdae7da9e7',
+        trackScreenViews: true,
+        trackOutgoingLinks: true,
+        trackAttributes: true,
+      });
+    </script>
+    <script src="https://openpanel.dev/op1.js" defer async></script>
   </head>
   <body>
     <Header />
