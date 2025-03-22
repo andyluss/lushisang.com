@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  data: { title, subTitle, tags, level, pubDate, updatedDate, heroImage, paradigm },
+  data: { title, subTitle, tags, level, pubDate, updatedDate, heroImage },
 } = Astro.props;
 ---
 
@@ -33,7 +33,6 @@ const {
       <div class="mb-1">
         {"⭐️".repeat(level)}
         {tags.length > 0 && "｜🏷 " + tags.join(", ")}
-        {paradigm && `｜💛范式：${paradigm}`}
       </div>
       <hr />
     </div>

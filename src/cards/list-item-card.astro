@@ -61,7 +61,6 @@ function star(post: Post) {
         )
       }
     </p>
-    {post.data.paradigm && <div class="paradigm">💛范式：{post.data.paradigm}</div>}
     <div class="tags text-blue-500">
         {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
     </div>
@@ -105,9 +104,5 @@ function star(post: Post) {
     position: absolute;
     bottom: 0;
     margin-right: 16px;
-  }
-  .paradigm {
-    color: red;
-    font-size: 12px;
   }
 </style>

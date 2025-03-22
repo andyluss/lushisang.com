@@ -12,7 +12,6 @@ const commonSchema = z.object({
   updatedDate: z.coerce.date().optional(),
   originDate: z.coerce.date().optional(),
   heroImage: z.string().optional(),
-  paradigm: z.string().optional(),
 });
 
 const dc = () =>

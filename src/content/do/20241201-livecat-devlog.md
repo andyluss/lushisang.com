@@ -1,5 +1,5 @@
 ---
-title: 🐈逍遥猫LiveCat开发日志
+title: LiveCat开发日志
 pubDate: 2024-12-01
 updatedDate: 2025-03-13
 tags: [🐈逍遥猫]
