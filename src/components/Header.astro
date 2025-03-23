@@ -21,45 +21,33 @@ import { SITE_TITLE, SITE_DESCRIPTION, COLLECTION_MAP } from "../consts";
 <style>
   header {
     margin: 0;
-    padding: 0 0.2em;
+    padding: 0 1em;
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.2em;
-    margin: 0;
-    min-width: 140px;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    color: var(--black);
-  }
-  nav .tabs {
-    width: 50%;
-    text-align: center;
-  }
-  nav .tabs a {
-    border-bottom: 2px solid transparent;
-    text-decoration: none;
-  }
-  nav .tabs a.active {
-    border-bottom-color: var(--accent);
-  }
-  .social-links {
-    display: flex;
-    justify-content: space-around;
-    min-width: 140px;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a {
+        color: var(--black);
+      }
+      .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.2em;
+        margin: 0;
+      }
+      .tabs {
+        text-align: center;
+        a {
+          border-bottom: 2px solid transparent;
+          text-decoration: none;
+          .active {
+            border-bottom-color: var(--accent);
+          }
+        }
+      }
     }
   }
 </style>
