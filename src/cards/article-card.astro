@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  data: { title, subTitle, tags, level, pubDate, updatedDate, heroImage },
+  data: { title, subTitle, tags, level, pubDate, updatedDate, originDate, heroImage },
 } = Astro.props;
 ---
 
@@ -24,15 +24,23 @@ const {
         {
           updatedDate && (
             <>
-              <span>↻更新于</span>
+              <span>｜更新于</span>
               <FormattedDate date={updatedDate} />
+            </>
+          )
+        }
+        {
+          originDate && (
+            <>
+              <span>｜原创于</span>
+              <FormattedDate date={originDate} />
             </>
           )
         }
       </div>
       <div class="mb-1">
         {"⭐️".repeat(level)}
-        {tags.length > 0 && "｜🏷 " + tags.join(", ")}
+        {tags.length > 0 && "🏷 " + tags.join(", ")}
       </div>
       <hr />
     </div>

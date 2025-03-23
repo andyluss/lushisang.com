@@ -1,6 +1,6 @@
 ---
 import { getAll } from "@/utils/content";
-import List from "@/layouts/list-layout.astro";
+import ListLayout from "@/layouts/list-layout.astro";
 
 export async function getStaticPaths() {
   const { tags, levels } = await getAll("life");
@@ -14,4 +14,4 @@ const [levelStr, tag] = filter.split("-");
 const level = levelStr === "all" ? "all" : Number(levelStr);
 ---
 
-<List collection="life" {tag} {level} />
+<ListLayout collection="life" {tag} {level} />
