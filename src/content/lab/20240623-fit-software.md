@@ -1,5 +1,5 @@
 ---
-title: 🩵适用软件
+title: 🩵适用软件FitSoft
 pubDate: 2024-06-23
 updatedDate: 2025-03-14
 tags: [💻IT]
