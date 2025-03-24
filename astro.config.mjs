@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import * as compiler from "vue/compiler-sfc";
 import tailwind from "@astrojs/tailwind";
+import markdoc from "@astrojs/markdoc";
 
 import db from "@astrojs/db";
 
@@ -16,5 +17,6 @@ export default defineConfig({
     vue({ compiler, devtools: true }),
     tailwind(),
     db(),
+    markdoc(),
   ],
 });

@@ -8,6 +8,7 @@ import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE, COLLECTION_MAP } from "../consts";
 import {
   type Collection,
+  type Post,
   type Level,
   type Tag,
   getAll,
@@ -17,9 +18,10 @@ interface Props {
   collection: Collection;
   tag?: Tag;
   level?: Level;
+  fadeOld?: boolean;
 }
 
-const { collection, tag = "all", level = "all" } = Astro.props;
+const { collection, tag = "all", level = "all", fadeOld } = Astro.props;
 const { posts, tags, levels } = await getAll(collection, tag, level);
 ---
 
@@ -44,6 +46,7 @@ const { posts, tags, levels } = await getAll(collection, tag, level);
                   collection={collection}
                   post={post}
                   index={posts.length - index}
+                  fadeOld={fadeOld}
                 />
               ))
           }

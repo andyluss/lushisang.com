@@ -8,6 +8,7 @@ interface Props {
   index: number;
   width?: string;
   height?: string;
+  fadeOld?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   index,
   width = "128px",
   height = "128px",
+  fadeOld = false,
 } = Astro.props;
 
 const bg = ['none', 'lightyellow', 'yellow', 'greenyellow'][post.data.top];
@@ -44,10 +46,15 @@ function star(post: Post) {
           : "bg-blue-200";
   return `w-3.5 text-[10px] leading-3 pt-[2px] rounded text-center ${bgColor}`;
 }
+
+function isFadePost() {
+  if (!fadeOld || post.data.top) return false;
+  return Date.now() - post.data.pubDate.getTime() > 3600000 * 240;
+}
 ---
 
-<a class:list={["post relative", ...border(post)]} href={`/${collection}/${post.slug}`}>
-    <div class:list={["title", post.data.level >= 3 && "!text-fuchsia-500"]}>
+<a class:list={["post relative", ...border(post), { fading: isFadePost() }]} href={`/${collection}/${post.slug}`}>
+    <div class:list={["title", { '!text-fuchsia-500': post.data.level >= 3 }]}>
       {post.data.title}
     </div>
     <p class="date">
@@ -104,5 +111,9 @@ function star(post: Post) {
     position: absolute;
     bottom: 0;
     margin-right: 16px;
+  }
+  .fading {
+    background: #ddd;
+    opacity: 0.6;
   }
 </style>
