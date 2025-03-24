@@ -27,5 +27,5 @@ export const collections = {
   xyy: dc(),
   lab: dc(),
   do: dc(),
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+  // docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
 };
