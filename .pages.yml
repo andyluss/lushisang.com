@@ -16,3 +16,17 @@ content:
       - { name: top, label: Top, type: number }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
+  - name: do
+    label: Do
+    type: collection
+    path: src/content/do
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: subTitle, label: Sub Title, type: string }
+      - { name: pubDate, label: Publish Date, type: date, required: true }
+      - { name: updatedDate, label: Updated Date, type: date }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: level, label: Level, type: number }
+      - { name: top, label: Top, type: number }
+      - { name: description, label: Description, type: string }
+      - { name: body, label: Body, type: rich-text }
