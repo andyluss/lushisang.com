@@ -1,0 +1,42 @@
+---
+import { type CollectionEntry, type AnyEntryMap } from "astro:content";
+import MusicPlayer from 'astro-netease-player/MusicPlayer.astro';
+
+import { getPosts } from "@/utils/content";
+import { COLLECTION_MAP } from "@/consts";
+import Article from "@/cards/article-card.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+
+type Collection = keyof AnyEntryMap;
+type Post = CollectionEntry<Collection>;
+
+export async function getStaticPaths() {
+  const collections = Object.keys(COLLECTION_MAP) as Collection[];
+    return collections.map((collection) => ({
+      params: { collection },
+    }));
+}
+
+const { collection } = Astro.params;
+const posts: Post[] = await getPosts(collection);
+const contents = [];
+for (let post of posts){
+  const { Content } = await post.render();
+  contents.push(Content);
+}
+const data = posts[0].data;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={data.title} description={data.description || data.title} />
+  </head>
+
+  <body>
+    <Header />
+    <main>{contents.map(Content => <Article data={data}><Content components={{ MusicPlayer }}/></Article>)}</main>
+    <Footer />
+  </body>
+</html>
