@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
-import { docsSchema } from "@astrojs/starlight/schema";
+// import { docsLoader } from "@astrojs/starlight/loaders";
+// import { docsSchema } from "@astrojs/starlight/schema";
 
 const commonSchema = z.object({
   title: z.string().max(20),
