@@ -72,7 +72,7 @@ function isFadePost() {
         {post.data.tags.length > 0 && <div>{post.data.tags.join(" ")}</div>}
     </div>
     <div class="absolute right-[1px] bottom-0 flex flex-col items-end space-x-1">
-        {!!post.data.top && <span>📌</span>}
+        <!-- {!!post.data.top && <span>📌</span>} -->
         {
         !!post.data.level && (
             <div class={star(post)}>{"⭐️".repeat(post.data.level)}</div>
