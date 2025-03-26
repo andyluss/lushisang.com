@@ -6,6 +6,6 @@ export const SITE_DESCRIPTION = "🏝️实践以人为本的🧚🌳新自然�
 export const COLLECTION_MAP = {
   xyy: "🧚逍遥游",
   lab: "🦄猫工社",
-  life: "🌳猫生活",
-  do: "🛵干饭猫",
+  life: "🐼猫生活",
+  do: "😻干饭猫",
 };
