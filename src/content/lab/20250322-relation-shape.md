@@ -4,7 +4,7 @@ subTitle: 利用数据分析和可视化发掘关系，预防风险
 pubDate: 2025-03-22
 tags: [💻IT]
 level: 2
-top: 3
+top: 2
 ---
 
 在[可视化](/lab/20240707-visualization)和[📈可视化：我的技术栈锚点](/lab/20250309-vis-as-tech-anchor)中，我提到了可视化的重要性。
