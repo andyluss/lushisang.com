@@ -3,7 +3,7 @@ import { defineCollection, z } from "astro:content";
 // import { docsSchema } from "@astrojs/starlight/schema";
 
 const commonSchema = z.object({
-  title: z.string().max(20),
+  title: z.string().max(30),
   subTitle: z.string().max(40).optional(),
   tags: z.string().array().default([]),
   level: z.number().default(0),
