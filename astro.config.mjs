@@ -12,7 +12,7 @@ import * as compiler from "vue/compiler-sfc";
 export default defineConfig({
   site: "https://lushisang.com",
   integrations: [
-    starlight({ title: "我的令人愉悦的文档网站" }),
+    // starlight({ title: "我的令人愉悦的文档网站" }),
     tailwind(),
     db(),
     mdx(),
