@@ -6,6 +6,7 @@ import db from "@astrojs/db";
 import markdoc from "@astrojs/markdoc";
 import starlight from "@astrojs/starlight";
 import vue from "@astrojs/vue";
+import react from "@astrojs/react";
 import * as compiler from "vue/compiler-sfc";
 
 // https://astro.build/config
@@ -19,5 +20,6 @@ export default defineConfig({
     sitemap(),
     markdoc(),
     vue({ compiler, devtools: true }),
+    react(),
   ],
 });
