@@ -11,7 +11,7 @@ import * as compiler from "vue/compiler-sfc";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://lushisang.com",
+  site: "https://blog.lushisang.com",
   integrations: [
     // starlight({ title: "我的令人愉悦的文档网站" }),
     tailwind(),
