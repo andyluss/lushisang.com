@@ -23,6 +23,7 @@
     "@astrojs/starlight": "^0.32.4",
     "@astrojs/tailwind": "^6.0.0",
     "@astrojs/vue": "^5.0.7",
+    "@electric-sql/react": "^1.0.3",
     "@instantdb/react": "^0.18.5",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
